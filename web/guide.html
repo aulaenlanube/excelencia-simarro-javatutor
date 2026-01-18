@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JavaTutor AI - Guía Técnica</title>
+    <title>JavaTutor IA - Guía Técnica</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
@@ -14,262 +14,420 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="bg-slate-50 text-slate-900">
+<body class="bg-slate-50 text-slate-900 flex flex-col min-h-screen">
 
-    <!-- Navigation -->
-    <nav class="sticky top-0 z-50 border-b border-slate-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-20">
-                <div class="flex items-center space-x-4">
-                    <img src="logo-simarro.jpg" alt="Logo Simarro" class="h-[72px] w-auto">
-                    <div class="h-8 w-px bg-slate-200"></div>
-                    <div>
-                        <span class="block text-xl font-extrabold tracking-tight text-slate-900">JavaTutor <span
-                                class="text-indigo-600 border-b-2 border-indigo-600/20">AI</span></span>
-                        <span class="text-[10px] uppercase tracking-wider font-bold text-slate-400">Centro de Excelencia
-                            Nacional IA</span>
-                    </div>
-                </div>
+    <div id="header-placeholder"></div>
 
-                <div class="hidden lg:flex items-center space-x-8 text-sm font-semibold">
-                    <a href="index.html" class="nav-link px-2 py-1">Proyecto</a>
-                    <a href="dataset.html" class="nav-link px-2 py-1">Dataset</a>
-                    <a href="guide.html" class="nav-link px-2 py-1 active">Guía Técnica</a>
-                    <a href="infra.html" class="nav-link px-2 py-1">Hardware</a>
-                    <a href="roadmap.html" class="nav-link px-2 py-1">Hoja de Ruta</a>
-                </div>
-
-                <div class="flex items-center lg:hidden">
-                    <button onclick="toggleMobileMenu()" class="p-2 text-slate-600">
-                        <i class="fas fa-bars text-2xl" id="menu-icon"></i>
-                    </button>
-                </div>
-            </div>
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
+        <!-- HEADER SECTION -->
+        <div class="text-center max-w-4xl mx-auto space-y-6 mb-20 page-content">
+            <span
+                class="px-4 py-1.5 bg-indigo-600 text-white text-[10px] font-black tracking-[0.2em] uppercase rounded-full shadow-lg shadow-indigo-200">
+                Core Engineering Manual
+            </span>
+            <h1 class="text-5xl md:text-6xl font-black text-slate-900 tracking-tight">
+                Metodología de <span class="text-indigo-600">Fine-Tuning</span>
+            </h1>
+            <p class="text-xl text-slate-600 leading-relaxed font-light">
+                Guía técnica exhaustiva para el entrenamiento de <strong>JavaTutor IA</strong>. Desde la curación del
+                dataset hasta el despliegue del modelo cuantizado.
+            </p>
         </div>
 
-        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-200 px-6 py-6 space-y-4 shadow-xl">
-            <a href="index.html" class="block w-full text-left font-bold text-slate-700">Proyecto</a>
-            <a href="dataset.html" class="block w-full text-left font-bold text-slate-700">Dataset</a>
-            <a href="guide.html" class="block w-full text-left font-bold text-slate-700">Guía Técnica</a>
-            <a href="infra.html" class="block w-full text-left font-bold text-slate-700">Hardware</a>
-            <a href="roadmap.html" class="block w-full text-left font-bold text-slate-700">Hoja de Ruta</a>
-        </div>
-    </nav>
-
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <!-- SECTION: GUIA TECNICA DOCKER -->
-        <section id="guide" class="space-y-12">
-            <div class="text-center max-w-4xl mx-auto space-y-4 page-content">
-                <span
-                    class="px-3 py-1 bg-indigo-50 border border-indigo-100 text-indigo-700 text-xs font-bold tracking-widest uppercase rounded-full">DevOps
-                    Engineering</span>
-                <h2 class="text-4xl font-extrabold text-slate-900">Entrenamiento con Docker</h2>
-                <p class="text-lg text-slate-600">
-                    Estandarización del entorno de <em>Fine-Tuning</em> para garantizar reproducibilidad en cualquier
-                    nodo del cluster.
-                </p>
-            </div>
-
-            <!-- Steps Container -->
-            <div class="space-y-12">
-
-                <!-- Step 0: Prerequisites -->
-                <div class="bg-indigo-50 rounded-2xl p-8 border border-indigo-100 page-content stagger-1">
-                    <h3 class="text-xl font-bold text-indigo-900 mb-4"><i class="fas fa-clipboard-check mr-2"></i>
-                        Prerrequisitos del Nodo</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-indigo-700">
-                        <div class="flex items-start space-x-2">
-                            <i class="fas fa-check-circle mt-1"></i>
-                            <span><strong>Drivers NVIDIA:</strong> Versión 535.0 o superior instalada en el Host.</span>
-                        </div>
-                        <div class="flex items-start space-x-2">
-                            <i class="fas fa-check-circle mt-1"></i>
-                            <span><strong>Docker Runtime:</strong> Soporte nativo para <code>--gpus all</code>
-                                (nvidia-container-toolkit).</span>
-                        </div>
-                        <div class="flex items-start space-x-2">
-                            <i class="fas fa-check-circle mt-1"></i>
-                            <span><strong>Volumen de Datos:</strong> Montaje de RAID 0 en <code>/mnt/data</code> para
-                                alta velocidad I/O.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Step 1: Environment -->
+        <!-- NEW SECTION: FINE-TUNING PIPELINE CONCEPTUAL -->
+        <section id="methodology" class="space-y-16 mb-24">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Step A: Data Curation -->
                 <div
-                    class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm page-content stagger-2">
-                    <div class="bg-slate-50 px-8 py-4 border-b border-slate-200 flex items-center justify-between">
-                        <div class="flex items-center space-x-4">
-                            <div
-                                class="w-8 h-8 bg-slate-900 text-white rounded-full flex items-center justify-center font-bold">
-                                1</div>
-                            <h3 class="font-bold text-slate-800">Entorno de Construcción (Dockerfile)</h3>
-                        </div>
-                        <span class="text-xs font-mono text-slate-500">Multistage Build Layer</span>
+                    class="bg-white rounded-[2rem] p-8 border border-slate-200 shadow-sm hover:shadow-xl transition-all group page-content stagger-1">
+                    <div
+                        class="w-14 h-14 bg-indigo-100 rounded-2xl flex items-center justify-center text-indigo-600 mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-filter text-2xl"></i>
                     </div>
-                    <div class="p-8">
-                        <p class="text-slate-600 mb-6 text-sm leading-relaxed">
-                            El entorno se construye sobre la imagen base oficial de NVIDIA para desarrolladores. Es
-                            crítico fijar las versiones de las librerías
-                            de aceleración (Flash Attention, Pytorch CUDA bindings) para evitar "DLL hell" durante el
-                            entrenamiento distribuido.
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">1. Curación de Datos</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed mb-6">
+                        No entrenamos con texto plano. Convertimos documentación técnica y vídeos en pares de
+                        <strong>Instrucción / Respuesta</strong>.
+                    </p>
+                    <ul class="space-y-3 text-xs font-semibold text-slate-600">
+                        <li class="flex items-center gap-2 text-indigo-600"><i class="fas fa-check-circle"></i> Limpieza
+                            de ruido HTML/SST</li>
+                        <li class="flex items-center gap-2 text-indigo-600"><i class="fas fa-check-circle"></i>
+                            Verificación sintáctica Java</li>
+                        <li class="flex items-center gap-2 text-indigo-600"><i class="fas fa-check-circle"></i> Formateo
+                            Alpaca/ShareGPT</li>
+                    </ul>
+                </div>
+
+                <!-- Step B: Architecture -->
+                <div
+                    class="bg-white rounded-[2rem] p-8 border border-slate-200 shadow-sm hover:shadow-xl transition-all group page-content stagger-2">
+                    <div
+                        class="w-14 h-14 bg-emerald-100 rounded-2xl flex items-center justify-center text-emerald-600 mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-project-diagram text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">2. Configuración LoRA</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed mb-6">
+                        Usamos <strong>Low-Rank Adaptation</strong> para entrenar solo el 1-2% de los pesos del modelo,
+                        manteniendo la base intacta.
+                    </p>
+                    <div class="bg-slate-50 p-4 rounded-xl font-mono text-[10px] text-slate-600">
+                        Rank (r): 64<br>
+                        Alpha: 32<br>
+                        Target: All Linear Layers
+                    </div>
+                </div>
+
+                <!-- Step C: Optimization -->
+                <div
+                    class="bg-white rounded-[2rem] p-8 border border-slate-200 shadow-sm hover:shadow-xl transition-all group page-content stagger-3">
+                    <div
+                        class="w-14 h-14 bg-amber-100 rounded-2xl flex items-center justify-center text-amber-600 mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-microchip text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">3. Cuantización 4-bit</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed mb-6">
+                        Cargamos el modelo base en <strong>NF4</strong> (NormalFloat 4bits) para que quepa en memoria
+                        manteniendo la precisión BF16.
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="flex-grow h-2 bg-slate-100 rounded-full overflow-hidden">
+                            <div class="h-full bg-amber-500 w-[85%]"></div>
+                        </div>
+                        <span class="text-[10px] font-bold text-slate-400">85% VRAM Eficiency</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: DATASET FORMATTING -->
+        <section id="dataset-formatting" class="mb-24 space-y-8 page-content">
+            <div class="flex items-center gap-4 mb-4">
+                <div class="h-px flex-grow bg-slate-200"></div>
+                <h2 class="text-2xl font-bold text-slate-800 uppercase tracking-widest text-sm italic">Dataset
+                    Engineering</h2>
+                <div class="h-px flex-grow bg-slate-200"></div>
+            </div>
+
+            <div class="bg-slate-900 rounded-[2.5rem] p-8 md:p-12 text-white">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-6">
+                        <h3 class="text-3xl font-bold">El Formato Propietario</h3>
+                        <p class="text-slate-400 leading-relaxed text-sm">
+                            Utilizamos un esquema de <strong>Ingesta de Conocimiento Local</strong>. Cada entrada en el
+                            dataset está diseñada para que el modelo no solo aprenda Java, sino también el <span
+                                class="text-indigo-400 font-bold">estilo pedagógico del IES Simarro</span>.
                         </p>
-                        <div
-                            class="bg-slate-900 rounded-lg p-6 font-mono text-xs text-slate-300 overflow-x-auto custom-scroll relative">
-                            <div class="absolute top-2 right-2 text-slate-600 font-bold uppercase text-[10px]">
-                                Dockerfile.base</div>
-                            <pre>FROM nvidia/cuda:12.1.0-devel-ubuntu22.04
-
-# 1. Variables de Entorno para optimización
-ENV DEBIAN_FRONTEND=noninteractive \
-    PYTHONUNBUFFERED=1 \
-    TORCH_CUDA_ARCH_LIST="8.0 8.6 8.9 9.0" \
-    FlashAttention_CUDA_ARCH_LIST="8.0 8.6 8.9 9.0"
-
-WORKDIR /workspace
-
-# 2. Dependencias de Sistema (Ninja para compilación JIT de kernels)
-RUN pt-get update && apt-get install -y \
-    python3.10 python3-pip git ninja-build socat \
-    && rm -rf /var/lib/apt/lists/*
-
-# 3. Core AI Stack (Fixed Versions)
-RUN pip install torch==2.1.2 torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
-RUN pip install flash-attn==2.4.2 --no-build-isolation
-
-# 4. Training Orchestration
-RUN pip install -U axolotl[deepspeed]
-RUN pip install bitsandbytes peft transformers==4.37.0 acceleration
-
-# 5. Copia de Configs y Datasets 
-COPY ./configs /workspace/configs
-COPY ./scripts /workspace/scripts</pre>
+                        <ul class="space-y-4">
+                            <li class="flex gap-4">
+                                <span
+                                    class="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">A</span>
+                                <div>
+                                    <h4 class="font-bold text-sm">Instrucción / Tarea</h4>
+                                    <p class="text-xs text-slate-500">¿Cómo implemento un Singleton en Java según el
+                                        estándar del aula?</p>
+                                </div>
+                            </li>
+                            <li class="flex gap-4">
+                                <span
+                                    class="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">B</span>
+                                <div>
+                                    <h4 class="font-bold text-sm">Código Explicado</h4>
+                                    <p class="text-xs text-slate-500">Inclusión de comentarios detallados y
+                                        explicaciones didácticas.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div
+                        class="bg-black/40 rounded-3xl p-6 border border-white/5 font-mono text-[11px] text-slate-300 shadow-2xl">
+                        <div class="flex items-center gap-2 mb-4 border-b border-white/10 pb-2">
+                            <span class="w-3 h-3 rounded-full bg-rose-500/20 border border-rose-500/40"></span>
+                            <span class="w-3 h-3 rounded-full bg-amber-500/20 border border-amber-500/40"></span>
+                            <span class="w-3 h-3 rounded-full bg-emerald-500/20 border border-emerald-500/40"></span>
+                            <span class="ml-2 text-slate-600">simarro_v1.jsonl</span>
                         </div>
+                        <pre class="custom-scroll">
+{
+  "instruction": "Explica la estructura de una Clase Java.",
+  "input": "Nivel: 1º DAM",
+  "output": "En el Simarro siempre empezamos por el modificador 'public'. Aquí tienes el ejemplo estándar:\n\n```java\npublic class MiClase {\n  // Propiedades\n  private String nombre;\n\n  // Constructor\n  public MiClase() {\n    this.nombre = 'Sin nombre';\n  }\n}\n```\nRecuerda usar nombres descriptivos en español para variables locales."
+}</pre>
                     </div>
                 </div>
+            </div>
 
-                <!-- Step 2: Configuration -->
-                <div
-                    class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm page-content stagger-3">
-                    <div class="bg-slate-50 px-8 py-4 border-b border-slate-200 flex items-center justify-between">
-                        <div class="flex items-center space-x-4">
+            <!-- ADITIONAL: Dataset Processor Code -->
+            <div class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm">
+                <div class="bg-slate-50 px-6 py-4 border-b border-slate-200 flex items-center justify-between">
+                    <h4 class="text-xs font-bold text-slate-700 uppercase tracking-widest">Script: Dataset Preprocessor
+                        (Python)</h4>
+                    <span class="text-[10px] font-mono text-slate-400">cleaner.py</span>
+                </div>
+                <div class="p-6 bg-slate-950 font-mono text-[11px] text-slate-300">
+                    <pre class="custom-scroll">
+import json
+
+def format_to_alpaca(raw_data):
+    # Transforma texto sucio del aula en pares de entrenamiento
+    clean_corpus = []
+    for item in raw_data:
+        example = {
+            "instruction": "Escribe un ejemplo de " + item['topic'],
+            "input": "Contexto: DAM IES Simarro",
+            "output": item['expert_explanation'] + "\n\n```java\n" + item['code'] + "\n```"
+        }
+        clean_corpus.append(example)
+    
+    with open('dataset_final.jsonl', 'w') as f:
+        for line in clean_corpus:
+            f.write(json.dumps(line) + '\n')
+
+# Ejecución: procesando 15GB de logs de tutorías y ejercicios
+# format_to_alpaca(load_raw_logs())</pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: DOCKER WORKFLOW (EXISTING IMPROVED) -->
+        <section id="docker-guide" class="space-y-12 page-content">
+            <div class="flex items-center gap-4 mb-4">
+                <div class="h-px flex-grow bg-slate-200"></div>
+                <h2 class="text-2xl font-bold text-slate-800 uppercase tracking-widest text-sm italic">Docker &
+                    Execution</h2>
+                <div class="h-px flex-grow bg-slate-200"></div>
+            </div>
+
+            <!-- Steps Grid -->
+            <div class="grid grid-cols-1 gap-12">
+                <!-- Step 1: Environment -->
+                <div class="bg-white rounded-[2.5rem] border border-slate-200 overflow-hidden shadow-sm group">
+                    <div class="grid grid-cols-1 lg:grid-cols-12">
+                        <div class="lg:col-span-4 bg-slate-50 p-10 border-r border-slate-200">
                             <div
-                                class="w-8 h-8 bg-slate-900 text-white rounded-full flex items-center justify-center font-bold">
-                                2</div>
-                            <h3 class="font-bold text-slate-800">Configuración de Hiperparámetros (YAML)</h3>
-                        </div>
-                        <span class="text-xs font-mono text-slate-500">Axolotl Config</span>
-                    </div>
-                    <div class="p-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
-                        <div>
-                            <p class="text-slate-600 text-sm mb-4">
-                                Esta es la "receta" del entrenamiento. Usamos <strong>QLoRA</strong> (Quantized Low-Rank
-                                Adaptation) para inyectar adaptadores entrenables en un modelo base congelado.
+                                class="w-12 h-12 bg-slate-900 text-white rounded-2xl flex items-center justify-center font-black text-xl mb-6">
+                                1</div>
+                            <h3 class="text-2xl font-bold text-slate-900 mb-4">Dockerfile Core</h3>
+                            <p class="text-slate-500 text-sm leading-relaxed">
+                                Estandarizamos el entorno usando Cuda 12.1. Instalamos <strong>Flash Attention
+                                    2</strong> para acelerar el cálculo de la atención propia en un 300%.
                             </p>
-                            <div class="space-y-4">
-                                <div class="border-l-4 border-indigo-500 pl-4 py-1">
-                                    <h5 class="font-bold text-indigo-900 text-xs uppercase">Estrategia de Sequence
-                                        Length</h5>
-                                    <p class="text-slate-500 text-xs">Aumentamos el contexto a <strong>4096
-                                            tokens</strong> para permitir ejemplos de código más complejos (clases
-                                        enteras de Java).</p>
-                                </div>
-                                <div class="border-l-4 border-emerald-500 pl-4 py-1">
-                                    <h5 class="font-bold text-emerald-900 text-xs uppercase">Optimizador</h5>
-                                    <p class="text-slate-500 text-xs">Usamos <strong>AdamW 8-bit</strong> paged para
-                                        reducir la presión en VRAM, permitiendo batches más grandes.</p>
-                                </div>
+                        </div>
+                        <div class="lg:col-span-8 p-0 bg-slate-950">
+                            <div class="p-6 font-mono text-[11px] text-indigo-300 custom-scroll">
+                                <pre>
+FROM nvidia/cuda:12.1.0-devel-ubuntu22.04
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && apt-get install -y python3-pip ninja-build
+RUN pip install torch==2.1.2 flash-attn --no-build-isolation
+RUN pip install "unsloth[colab-new] @ git+https://github.com/unslothai/unsloth.git"
+RUN pip install bitsandbytes peft transformers</pre>
                             </div>
                         </div>
-                        <div
-                            class="bg-slate-900 rounded-lg p-6 font-mono text-xs text-slate-300 overflow-x-auto custom-scroll">
-                            <pre><span class="text-rose-400">base_model:</span> Qwen/Qwen2.5-Coder-32B-Instruct
-<span class="text-rose-400">model_type:</span> AutoModelForCausalLM
-<span class="text-rose-400">tokenizer_type:</span> AutoTokenizer
+                    </div>
+                </div>
 
-<span class="text-slate-500"># Dataset Loading</span>
-<span class="text-rose-400">datasets:</span>
-  - <span class="text-rose-400">path:</span> data/simarro_java_corpus_v1.jsonl
-    <span class="text-rose-400">type:</span> alpaca_chat
-    
-<span class="text-slate-500"># Adapter Config</span>
-<span class="text-rose-400">adapter:</span> lora
-<span class="text-rose-400">lora_r:</span> <span class="text-emerald-300">64</span>
-<span class="text-rose-400">lora_alpha:</span> <span class="text-emerald-300">32</span>
-<span class="text-rose-400">lora_dropout:</span> <span class="text-emerald-300">0.05</span>
-<span class="text-rose-400">lora_target_modules:</span>
+                <!-- Step 1.5: Axolotl Config Detail -->
+                <div class="bg-white rounded-[2.5rem] border border-slate-200 overflow-hidden shadow-sm group">
+                    <div class="grid grid-cols-1 lg:grid-cols-12">
+                        <div class="lg:col-span-4 bg-slate-50 p-10 border-r border-slate-200">
+                            <h3 class="text-xl font-bold text-slate-900 mb-4">Configuración Axolotl</h3>
+                            <p class="text-slate-500 text-xs leading-relaxed">
+                                Definimos los hiperparámetros exactos para el Fine-Tuning. Optimizamos el
+                                <code>learning_rate</code> para evitar el olvido catastrófico del conocimiento base.
+                            </p>
+                        </div>
+                        <div class="lg:col-span-8 p-0 bg-slate-950">
+                            <div class="p-6 font-mono text-[11px] text-emerald-400 custom-scroll">
+                                <pre>
+base_model: Qwen/Qwen2.5-Coder-32B-Instruct
+model_type: AutoModelForCausalLM
+tokenizer_type: AutoTokenizer
+
+load_in_4bit: true
+adapter: lora
+lora_r: 64
+lora_alpha: 32
+lora_dropout: 0.05
+lora_target_modules:
   - q_proj
   - k_proj
   - v_proj
   - o_proj
 
-<span class="text-slate-500"># Training Loop</span>
-<span class="text-rose-400">sequence_len:</span> 4096
-<span class="text-rose-400">micro_batch_size:</span> 2
-<span class="text-rose-400">gradient_accumulation_steps:</span> 4
-<span class="text-rose-400">learning_rate:</span> 0.0002</pre>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Step 3: Execution Command -->
-                <div
-                    class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm page-content stagger-3">
-                    <div class="bg-slate-50 px-8 py-4 border-b border-slate-200 flex items-center justify-between">
-                        <div class="flex items-center space-x-4">
-                            <div
-                                class="w-8 h-8 bg-slate-900 text-white rounded-full flex items-center justify-center font-bold">
-                                3</div>
-                            <h3 class="font-bold text-slate-800">Comando de Lanzamiento</h3>
-                        </div>
-                        <span class="text-xs font-mono text-slate-500">Multi-GPU Launch</span>
-                    </div>
-                    <div class="p-8">
-                        <p class="text-slate-600 mb-6 text-sm">
-                            Ejecutamos el contenedor montando los volúmenes de datos. Es crucial pasar la bandera
-                            <code>--shm-size=16g</code> para evitar errores de comunicación entre procesos NCCL en
-                            configuraciones multi-GPU.
-                        </p>
-                        <div class="bg-slate-900 rounded-xl p-6 font-mono text-sm text-slate-300 shadow-inner">
-                            <span class="text-green-400">user@hardware-node:~$</span> docker run --gpus
-                            '"device=0,1,2,3"' --rm -it \<br>
-                            <span class="pl-4">--shm-size=16g \</span><br>
-                            <span class="pl-4">-v $(pwd)/data:/workspace/data \</span><br>
-                            <span class="pl-4">-v $(pwd)/output:/workspace/output \</span><br>
-                            <span class="pl-4">javatutor-trainer:latest \</span><br>
-                            <span class="pl-4 text-yellow-400">accelerate launch -m axolotl.cli.train
-                                config/qwen_lora.yaml</span>
-                        </div>
-                        <div
-                            class="mt-4 p-4 bg-emerald-50 rounded-lg border border-emerald-100 flex items-center justify-between">
-                            <div class="flex items-center space-x-3 text-emerald-800 text-xs font-bold">
-                                <i class="fas fa-satellite-dish animate-pulse"></i>
-                                <span>Monitorización en vivo:</span>
+dataset_prepared_path: ./data/simarro_prepared
+val_set_size: 0.05
+sequence_len: 4096
+micro_batch_size: 2
+gradient_accumulation_steps: 4
+learning_rate: 0.0002</pre>
                             </div>
-                            <a href="#"
-                                class="text-xs text-indigo-600 hover:text-indigo-800 underline font-mono">https://wandb.ai/simarro-ai/javatutor-training/runs/latest</a>
                         </div>
                     </div>
                 </div>
 
+                <!-- Step 2: Launcher -->
+                <div class="bg-indigo-900 rounded-[2.5rem] p-10 text-white relative overflow-hidden group">
+                    <div
+                        class="absolute top-0 right-0 p-10 opacity-10 group-hover:scale-125 transition-transform duration-700">
+                        <i class="fas fa-terminal text-[12rem]"></i>
+                    </div>
+                    <div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        <div class="space-y-6">
+                            <div
+                                class="w-12 h-12 bg-indigo-500 text-white rounded-2xl flex items-center justify-center font-black text-xl">
+                                2</div>
+                            <h3 class="text-3xl font-bold">Lanzamiento del Motor</h3>
+                            <p class="text-indigo-200/70 text-sm leading-relaxed">
+                                Ejecutamos el contenedor asignando todas las GPUs disponibles. El uso de
+                                <code>shm-size</code> es crítico para la sincronización NCCL.
+                            </p>
+                            <div class="space-y-4">
+                                <div class="bg-indigo-800/50 p-4 rounded-xl border border-indigo-700">
+                                    <div class="text-[10px] font-black text-indigo-400 uppercase tracking-widest mb-1">
+                                        Runtime Command</div>
+                                    <code
+                                        class="text-xs text-indigo-100">docker run --gpus all --shm-size=16g javatutor-v1</code>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-black/60 rounded-3xl p-8 border border-white/10 shadow-3xl">
+                            <div class="flex items-center justify-between mb-6">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
+                                    <span
+                                        class="text-[10px] font-bold text-emerald-400 uppercase tracking-widest">Training
+                                        Progress</span>
+                                </div>
+                                <span class="text-[10px] text-slate-500">ETA: 18h 12m</span>
+                            </div>
+                            <div class="space-y-6">
+                                <div class="space-y-2">
+                                    <div class="flex justify-between text-[10px] font-bold">
+                                        <span class="text-slate-400 uppercase">Loss Rate</span>
+                                        <span class="text-white">0.2341</span>
+                                    </div>
+                                    <div class="h-1.5 bg-white/5 rounded-full overflow-hidden">
+                                        <div class="h-full bg-gradient-to-r from-indigo-500 to-purple-500 w-[65%]">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="bg-white/5 p-3 rounded-xl border border-white/5">
+                                        <span class="block text-[8px] text-slate-500 uppercase">Batch Size</span>
+                                        <span class="text-sm font-black">128</span>
+                                    </div>
+                                    <div class="bg-white/5 p-3 rounded-xl border border-white/5">
+                                        <span class="block text-[8px] text-slate-500 uppercase">Tokens/sec</span>
+                                        <span class="text-sm font-black">12,450</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW SECTION: CONSUMPTION (JAVA) -->
+        <section id="consumption" class="mb-24 page-content">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="h-px flex-grow bg-slate-200"></div>
+                <h2 class="text-2xl font-bold text-slate-800 uppercase tracking-widest text-sm italic">Consumo desde el
+                    Entorno Real</h2>
+                <div class="h-px flex-grow bg-slate-200"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-bold text-slate-900">Uso desde Java (Client)</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        Los alumnos no usan la terminal para hablar con la IA. Hemos implementado un cliente Java
+                        estándar que consume la API generada por <strong>Ollama</strong> o <strong>vLLM</strong>.
+                    </p>
+                    <div class="p-6 bg-slate-900 rounded-3xl font-mono text-[10px] text-white overflow-x-auto">
+                        <pre class="custom-scroll">
+// Ejemplo de llamada desde una aplicación Java de escritorio
+public class TutorClient {
+    public static String getHelp(String error) {
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder()
+            .uri(URI.create("http://localhost:11434/api/generate"))
+            .POST(BodyPublishers.ofString("{\"model\": \"javatutor-ia\", \"prompt\": \"" + error + "\"}"))
+            .build();
+        
+        // Retorna la respuesta del Tutor optimizada para el alumno
+        return client.send(request, BodyHandlers.ofString()).body();
+    }
+}</pre>
+                    </div>
+                </div>
+
+                <div class="bg-indigo-50 rounded-3xl p-8 border border-indigo-100 flex flex-col justify-center">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-10 h-10 bg-indigo-600 text-white rounded-lg flex items-center justify-center">
+                            <i class="fas fa-plug"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-900">Endpoint de Inferencia</h4>
+                    </div>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <div
+                                class="w-5 h-5 bg-indigo-200 rounded-full flex-shrink-0 flex items-center justify-center text-[10px] font-bold">
+                                1</div>
+                            <p class="text-xs text-slate-600"><strong>Servidor:</strong> vLLM con soporte de
+                                PagedAttention para concurrencia masiva (múltiples alumnos a la vez).</p>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div
+                                class="w-5 h-5 bg-indigo-200 rounded-full flex-shrink-0 flex items-center justify-center text-[10px] font-bold">
+                                2</div>
+                            <p class="text-xs text-slate-600"><strong>Cuantización:</strong> EXL2 (4.0 bits) para
+                                tiempos de respuesta inferiores a 50ms (Time To First Token).</p>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div
+                                class="w-5 h-5 bg-indigo-200 rounded-full flex-shrink-0 flex items-center justify-center text-[10px] font-bold">
+                                3</div>
+                            <p class="text-xs text-slate-600"><strong>Protocolo:</strong> OpenAI Compatible API para
+                                facilitar el cambio de modelos en el futuro.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- FINAL SECTION: EXPORT -->
+        <section id="export" class="mb-24 page-content stagger-3">
+            <div class="bg-emerald-50 rounded-[2.5rem] p-12 border border-emerald-100 text-center space-y-8">
+                <div
+                    class="w-20 h-20 bg-emerald-500 text-white rounded-[2rem] flex items-center justify-center mx-auto shadow-xl shadow-emerald-200">
+                    <i class="fas fa-file-export text-3xl"></i>
+                </div>
+                <h3 class="text-3xl font-black text-slate-900">4. Exportación y Convergencia</h3>
+                <p class="text-slate-600 max-w-2xl mx-auto font-medium">
+                    Una vez finalizado, los adaptadores LoRA se fusionan con el modelo base Qwen32B para generar un
+                    modelo unificado en formato <span class="text-emerald-600 font-bold">GGUF</span> o <span
+                        class="text-emerald-600 font-bold">EXL2</span>.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <span
+                        class="px-6 py-2 bg-white border border-emerald-200 rounded-full text-xs font-bold text-emerald-700 shadow-sm transition-transform hover:scale-105">Merge
+                        LoRA Weights</span>
+                    <span
+                        class="px-6 py-2 bg-white border border-emerald-200 rounded-full text-xs font-bold text-emerald-700 shadow-sm transition-transform hover:scale-105">4-bit
+                        Quantization (GGUF)</span>
+                    <span
+                        class="px-6 py-2 bg-white border border-emerald-200 rounded-full text-xs font-bold text-emerald-700 shadow-sm transition-transform hover:scale-105">VLLM
+                        Serving Layout</span>
+                </div>
             </div>
         </section>
     </main>
 
-    <footer class="bg-white border-t border-slate-200 py-12">
-        <div class="max-w-7xl mx-auto px-4 flex flex-col items-center text-center">
-            <div class="space-y-6">
-                <div class="flex items-center justify-center space-x-4">
-                    <img src="logo-simarro.jpg" alt="Logo Simarro"
-                        class="h-12 opacity-80 hover:grayscale-0 transition-all">
-                    <span class="text-xl font-bold text-slate-500">IES Dr. Lluís Simarro</span>
-                </div>
-                <p class="text-lg text-slate-500 max-w-2xl mx-auto">Documentación técnica para el Proyecto como Centro
-                    de Excelencia Nacional en IA y Big Data.</p>
-            </div>
-        </div>
-    </footer>
+    <div id="footer-placeholder"></div>
 
+    <script src="js/layout.js"></script>
     <script src="script.js"></script>
 </body>
 

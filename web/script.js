@@ -1,14 +1,4 @@
-function toggleMobileMenu() {
-    const menu = document.getElementById('mobile-menu');
-    const icon = document.getElementById('menu-icon');
-    menu.classList.toggle('hidden');
 
-    if (menu.classList.contains('hidden')) {
-        icon.className = 'fas fa-bars text-2xl';
-    } else {
-        icon.className = 'fas fa-times text-2xl';
-    }
-}
 
 // --- CHART JS ---
 let vramChartInstance;
@@ -81,24 +71,9 @@ function initCharts() {
     }
 }
 
-// Active Link Highlight Logic for MPA
-function highlightActiveLink() {
-    const currentPage = window.location.pathname.split("/").pop() || 'index.html';
-    const links = document.querySelectorAll('.nav-link, #mobile-menu button'); // Note: mobile menu used buttons in SPA, we need to change them to links or standard "a" tags in HTML
 
-    // In HTML we will use <a> tags, so:
-    document.querySelectorAll('nav a').forEach(link => {
-        const href = link.getAttribute('href');
-        if (href === currentPage || (currentPage === '' && href === 'index.html')) {
-            link.classList.add('active');
-        } else {
-            // Also handle base case where index.html might be implied
-        }
-    });
-}
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
     initCharts();
-    // highlightActiveLink(); // We can also just manually set the "active" class in each HTML file to avoid complexity with file:// paths
 });
