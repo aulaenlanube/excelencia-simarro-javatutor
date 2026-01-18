@@ -8,9 +8,7 @@ const FOOTER_HTML = `
                 <span class="text-xl font-bold text-slate-500">IES Dr. Lluís Simarro</span>
             </div>
             <div class="h-px w-16 bg-gradient-to-r from-transparent via-slate-300 to-transparent mx-auto"></div>
-            <p class="text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
-                <span class="font-semibold text-slate-700">Centro de Excelencia Nacional en IA y Big Data</span>.
-            </p>
+            
             
         </div>
     </div>
