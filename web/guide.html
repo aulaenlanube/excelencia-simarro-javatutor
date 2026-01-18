@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaTutor AI - Guía Técnica</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-slate-50 text-slate-900">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center space-x-4">
+                    <img src="logo-simarro.jpg" alt="Logo Simarro" class="h-[72px] w-auto">
+                    <div class="h-8 w-px bg-slate-200"></div>
+                    <div>
+                        <span class="block text-xl font-extrabold tracking-tight text-slate-900">JavaTutor <span
+                                class="text-indigo-600 border-b-2 border-indigo-600/20">AI</span></span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold text-slate-400">Centro de Excelencia
+                            Nacional IA</span>
+                    </div>
+                </div>
+
+                <div class="hidden lg:flex items-center space-x-8 text-sm font-semibold">
+                    <a href="index.html" class="nav-link px-2 py-1">Proyecto</a>
+                    <a href="dataset.html" class="nav-link px-2 py-1">Dataset</a>
+                    <a href="guide.html" class="nav-link px-2 py-1 active">Guía Técnica</a>
+                    <a href="infra.html" class="nav-link px-2 py-1">Hardware</a>
+                    <a href="roadmap.html" class="nav-link px-2 py-1">Hoja de Ruta</a>
+                </div>
+
+                <div class="flex items-center lg:hidden">
+                    <button onclick="toggleMobileMenu()" class="p-2 text-slate-600">
+                        <i class="fas fa-bars text-2xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-200 px-6 py-6 space-y-4 shadow-xl">
+            <a href="index.html" class="block w-full text-left font-bold text-slate-700">Proyecto</a>
+            <a href="dataset.html" class="block w-full text-left font-bold text-slate-700">Dataset</a>
+            <a href="guide.html" class="block w-full text-left font-bold text-slate-700">Guía Técnica</a>
+            <a href="infra.html" class="block w-full text-left font-bold text-slate-700">Hardware</a>
+            <a href="roadmap.html" class="block w-full text-left font-bold text-slate-700">Hoja de Ruta</a>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <!-- SECTION: GUIA TECNICA DOCKER -->
+        <section id="guide" class="space-y-12">
+            <div class="text-center max-w-4xl mx-auto space-y-4 page-content">
+                <span
+                    class="px-3 py-1 bg-indigo-50 border border-indigo-100 text-indigo-700 text-xs font-bold tracking-widest uppercase rounded-full">DevOps
+                    Engineering</span>
+                <h2 class="text-4xl font-extrabold text-slate-900">Entrenamiento con Docker</h2>
+                <p class="text-lg text-slate-600">
+                    Estandarización del entorno de <em>Fine-Tuning</em> para garantizar reproducibilidad en cualquier
+                    nodo del cluster.
+                </p>
+            </div>
+
+            <!-- Steps Container -->
+            <div class="space-y-12">
+
+                <!-- Step 0: Prerequisites -->
+                <div class="bg-indigo-50 rounded-2xl p-8 border border-indigo-100 page-content stagger-1">
+                    <h3 class="text-xl font-bold text-indigo-900 mb-4"><i class="fas fa-clipboard-check mr-2"></i>
+                        Prerrequisitos del Nodo</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-indigo-700">
+                        <div class="flex items-start space-x-2">
+                            <i class="fas fa-check-circle mt-1"></i>
+                            <span><strong>Drivers NVIDIA:</strong> Versión 535.0 o superior instalada en el Host.</span>
+                        </div>
+                        <div class="flex items-start space-x-2">
+                            <i class="fas fa-check-circle mt-1"></i>
+                            <span><strong>Docker Runtime:</strong> Soporte nativo para <code>--gpus all</code>
+                                (nvidia-container-toolkit).</span>
+                        </div>
+                        <div class="flex items-start space-x-2">
+                            <i class="fas fa-check-circle mt-1"></i>
+                            <span><strong>Volumen de Datos:</strong> Montaje de RAID 0 en <code>/mnt/data</code> para
+                                alta velocidad I/O.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 1: Environment -->
+                <div
+                    class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm page-content stagger-2">
+                    <div class="bg-slate-50 px-8 py-4 border-b border-slate-200 flex items-center justify-between">
+                        <div class="flex items-center space-x-4">
+                            <div
+                                class="w-8 h-8 bg-slate-900 text-white rounded-full flex items-center justify-center font-bold">
+                                1</div>
+                            <h3 class="font-bold text-slate-800">Entorno de Construcción (Dockerfile)</h3>
+                        </div>
+                        <span class="text-xs font-mono text-slate-500">Multistage Build Layer</span>
+                    </div>
+                    <div class="p-8">
+                        <p class="text-slate-600 mb-6 text-sm leading-relaxed">
+                            El entorno se construye sobre la imagen base oficial de NVIDIA para desarrolladores. Es
+                            crítico fijar las versiones de las librerías
+                            de aceleración (Flash Attention, Pytorch CUDA bindings) para evitar "DLL hell" durante el
+                            entrenamiento distribuido.
+                        </p>
+                        <div
+                            class="bg-slate-900 rounded-lg p-6 font-mono text-xs text-slate-300 overflow-x-auto custom-scroll relative">
+                            <div class="absolute top-2 right-2 text-slate-600 font-bold uppercase text-[10px]">
+                                Dockerfile.base</div>
+                            <pre>FROM nvidia/cuda:12.1.0-devel-ubuntu22.04
+
+# 1. Variables de Entorno para optimización
+ENV DEBIAN_FRONTEND=noninteractive \
+    PYTHONUNBUFFERED=1 \
+    TORCH_CUDA_ARCH_LIST="8.0 8.6 8.9 9.0" \
+    FlashAttention_CUDA_ARCH_LIST="8.0 8.6 8.9 9.0"
+
+WORKDIR /workspace
+
+# 2. Dependencias de Sistema (Ninja para compilación JIT de kernels)
+RUN pt-get update && apt-get install -y \
+    python3.10 python3-pip git ninja-build socat \
+    && rm -rf /var/lib/apt/lists/*
+
+# 3. Core AI Stack (Fixed Versions)
+RUN pip install torch==2.1.2 torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+RUN pip install flash-attn==2.4.2 --no-build-isolation
+
+# 4. Training Orchestration
+RUN pip install -U axolotl[deepspeed]
+RUN pip install bitsandbytes peft transformers==4.37.0 acceleration
+
+# 5. Copia de Configs y Datasets 
+COPY ./configs /workspace/configs
+COPY ./scripts /workspace/scripts</pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Configuration -->
+                <div
+                    class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm page-content stagger-3">
+                    <div class="bg-slate-50 px-8 py-4 border-b border-slate-200 flex items-center justify-between">
+                        <div class="flex items-center space-x-4">
+                            <div
+                                class="w-8 h-8 bg-slate-900 text-white rounded-full flex items-center justify-center font-bold">
+                                2</div>
+                            <h3 class="font-bold text-slate-800">Configuración de Hiperparámetros (YAML)</h3>
+                        </div>
+                        <span class="text-xs font-mono text-slate-500">Axolotl Config</span>
+                    </div>
+                    <div class="p-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div>
+                            <p class="text-slate-600 text-sm mb-4">
+                                Esta es la "receta" del entrenamiento. Usamos <strong>QLoRA</strong> (Quantized Low-Rank
+                                Adaptation) para inyectar adaptadores entrenables en un modelo base congelado.
+                            </p>
+                            <div class="space-y-4">
+                                <div class="border-l-4 border-indigo-500 pl-4 py-1">
+                                    <h5 class="font-bold text-indigo-900 text-xs uppercase">Estrategia de Sequence
+                                        Length</h5>
+                                    <p class="text-slate-500 text-xs">Aumentamos el contexto a <strong>4096
+                                            tokens</strong> para permitir ejemplos de código más complejos (clases
+                                        enteras de Java).</p>
+                                </div>
+                                <div class="border-l-4 border-emerald-500 pl-4 py-1">
+                                    <h5 class="font-bold text-emerald-900 text-xs uppercase">Optimizador</h5>
+                                    <p class="text-slate-500 text-xs">Usamos <strong>AdamW 8-bit</strong> paged para
+                                        reducir la presión en VRAM, permitiendo batches más grandes.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-slate-900 rounded-lg p-6 font-mono text-xs text-slate-300 overflow-x-auto custom-scroll">
+                            <pre><span class="text-rose-400">base_model:</span> Qwen/Qwen2.5-Coder-32B-Instruct
+<span class="text-rose-400">model_type:</span> AutoModelForCausalLM
+<span class="text-rose-400">tokenizer_type:</span> AutoTokenizer
+
+<span class="text-slate-500"># Dataset Loading</span>
+<span class="text-rose-400">datasets:</span>
+  - <span class="text-rose-400">path:</span> data/simarro_java_corpus_v1.jsonl
+    <span class="text-rose-400">type:</span> alpaca_chat
+    
+<span class="text-slate-500"># Adapter Config</span>
+<span class="text-rose-400">adapter:</span> lora
+<span class="text-rose-400">lora_r:</span> <span class="text-emerald-300">64</span>
+<span class="text-rose-400">lora_alpha:</span> <span class="text-emerald-300">32</span>
+<span class="text-rose-400">lora_dropout:</span> <span class="text-emerald-300">0.05</span>
+<span class="text-rose-400">lora_target_modules:</span>
+  - q_proj
+  - k_proj
+  - v_proj
+  - o_proj
+
+<span class="text-slate-500"># Training Loop</span>
+<span class="text-rose-400">sequence_len:</span> 4096
+<span class="text-rose-400">micro_batch_size:</span> 2
+<span class="text-rose-400">gradient_accumulation_steps:</span> 4
+<span class="text-rose-400">learning_rate:</span> 0.0002</pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Execution Command -->
+                <div
+                    class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm page-content stagger-3">
+                    <div class="bg-slate-50 px-8 py-4 border-b border-slate-200 flex items-center justify-between">
+                        <div class="flex items-center space-x-4">
+                            <div
+                                class="w-8 h-8 bg-slate-900 text-white rounded-full flex items-center justify-center font-bold">
+                                3</div>
+                            <h3 class="font-bold text-slate-800">Comando de Lanzamiento</h3>
+                        </div>
+                        <span class="text-xs font-mono text-slate-500">Multi-GPU Launch</span>
+                    </div>
+                    <div class="p-8">
+                        <p class="text-slate-600 mb-6 text-sm">
+                            Ejecutamos el contenedor montando los volúmenes de datos. Es crucial pasar la bandera
+                            <code>--shm-size=16g</code> para evitar errores de comunicación entre procesos NCCL en
+                            configuraciones multi-GPU.
+                        </p>
+                        <div class="bg-slate-900 rounded-xl p-6 font-mono text-sm text-slate-300 shadow-inner">
+                            <span class="text-green-400">user@hardware-node:~$</span> docker run --gpus
+                            '"device=0,1,2,3"' --rm -it \<br>
+                            <span class="pl-4">--shm-size=16g \</span><br>
+                            <span class="pl-4">-v $(pwd)/data:/workspace/data \</span><br>
+                            <span class="pl-4">-v $(pwd)/output:/workspace/output \</span><br>
+                            <span class="pl-4">javatutor-trainer:latest \</span><br>
+                            <span class="pl-4 text-yellow-400">accelerate launch -m axolotl.cli.train
+                                config/qwen_lora.yaml</span>
+                        </div>
+                        <div
+                            class="mt-4 p-4 bg-emerald-50 rounded-lg border border-emerald-100 flex items-center justify-between">
+                            <div class="flex items-center space-x-3 text-emerald-800 text-xs font-bold">
+                                <i class="fas fa-satellite-dish animate-pulse"></i>
+                                <span>Monitorización en vivo:</span>
+                            </div>
+                            <a href="#"
+                                class="text-xs text-indigo-600 hover:text-indigo-800 underline font-mono">https://wandb.ai/simarro-ai/javatutor-training/runs/latest</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white border-t border-slate-200 py-12">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col items-center text-center">
+            <div class="space-y-6">
+                <div class="flex items-center justify-center space-x-4">
+                    <img src="logo-simarro.jpg" alt="Logo Simarro"
+                        class="h-12 opacity-80 hover:grayscale-0 transition-all">
+                    <span class="text-xl font-bold text-slate-500">IES Dr. Lluís Simarro</span>
+                </div>
+                <p class="text-lg text-slate-500 max-w-2xl mx-auto">Documentación técnica para el Proyecto como Centro
+                    de Excelencia Nacional en IA y Big Data.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

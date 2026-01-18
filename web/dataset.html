@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaTutor AI - Dataset</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-slate-50 text-slate-900">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center space-x-4">
+                    <img src="logo-simarro.jpg" alt="Logo Simarro" class="h-[72px] w-auto">
+                    <div class="h-8 w-px bg-slate-200"></div>
+                    <div>
+                        <span class="block text-xl font-extrabold tracking-tight text-slate-900">JavaTutor <span
+                                class="text-indigo-600 border-b-2 border-indigo-600/20">AI</span></span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold text-slate-400">Centro de Excelencia
+                            Nacional IA</span>
+                    </div>
+                </div>
+
+                <div class="hidden lg:flex items-center space-x-8 text-sm font-semibold">
+                    <a href="index.html" class="nav-link px-2 py-1">Proyecto</a>
+                    <a href="dataset.html" class="nav-link px-2 py-1 active">Dataset</a>
+                    <a href="guide.html" class="nav-link px-2 py-1">Guía Técnica</a>
+                    <a href="infra.html" class="nav-link px-2 py-1">Hardware</a>
+                    <a href="roadmap.html" class="nav-link px-2 py-1">Hoja de Ruta</a>
+                </div>
+
+                <div class="flex items-center lg:hidden">
+                    <button onclick="toggleMobileMenu()" class="p-2 text-slate-600">
+                        <i class="fas fa-bars text-2xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-200 px-6 py-6 space-y-4 shadow-xl">
+            <a href="index.html" class="block w-full text-left font-bold text-slate-700">Proyecto</a>
+            <a href="dataset.html" class="block w-full text-left font-bold text-slate-700">Dataset</a>
+            <a href="guide.html" class="block w-full text-left font-bold text-slate-700">Guía Técnica</a>
+            <a href="infra.html" class="block w-full text-left font-bold text-slate-700">Hardware</a>
+            <a href="roadmap.html" class="block w-full text-left font-bold text-slate-700">Hoja de Ruta</a>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <!-- SECTION: DATASET -->
+        <section id="dataset" class="page-content space-y-12">
+            <div class="text-center max-w-4xl mx-auto space-y-4">
+                <span
+                    class="px-3 py-1 bg-indigo-50 border border-indigo-100 text-indigo-700 text-xs font-bold tracking-widest uppercase rounded-full">Data
+                    Engineering</span>
+                <h2 class="text-4xl font-extrabold text-slate-900">Ingeniería del Corpus Multimodal</h2>
+                <p class="text-lg text-slate-600">
+                    Transformamos un legado digital de 15 años de docencia en un dataset de alta fidelidad para el
+                    entrenamiento de LLMs.
+                </p>
+            </div>
+
+            <!-- YouTube Video Processing Detail -->
+            <div class="bg-slate-900 rounded-[2.5rem] p-10 text-white relative overflow-hidden shadow-2xl">
+                <!-- Decorative Elements -->
+                <div class="absolute top-0 right-0 p-12 opacity-5 pointer-events-none">
+                    <i class="fab fa-youtube text-[12rem]"></i>
+                </div>
+                <div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <div class="space-y-6">
+                        <div class="flex items-center space-x-3 text-red-400">
+                            <i class="fab fa-youtube text-2xl"></i>
+                            <h3 class="text-2xl font-bold text-white">Video Pipeline Extraction</h3>
+                        </div>
+                        <p class="text-slate-400 leading-relaxed">
+                            Procesamos los 220 vídeos del canal oficial aplicando una pipeline de tres etapas para
+                            maximizar la recuperación de información. No solo usamos el audio; "vemos" el código que se
+                            escribe en pantalla.
+                        </p>
+
+                        <div class="space-y-4 pt-4">
+                            <div
+                                class="bg-white/5 p-4 rounded-xl border border-white/10 flex items-start space-x-4 hover:bg-white/10 transition-colors">
+                                <div
+                                    class="px-2 py-1 bg-indigo-500/20 text-indigo-300 rounded text-xs font-mono border border-indigo-500/30">
+                                    Audio</div>
+                                <div>
+                                    <h4 class="font-bold text-sm">Whisper V3 Large</h4>
+                                    <p class="text-xs text-slate-400 mt-1">Transcripción de alta precisión con
+                                        diarización, ignorando ruido de fondo y pausas largas.</p>
+                                </div>
+                            </div>
+                            <div
+                                class="bg-white/5 p-4 rounded-xl border border-white/10 flex items-start space-x-4 hover:bg-white/10 transition-colors">
+                                <div
+                                    class="px-2 py-1 bg-emerald-500/20 text-emerald-300 rounded text-xs font-mono border border-emerald-500/30">
+                                    Visual</div>
+                                <div>
+                                    <h4 class="font-bold text-sm">OCR + Layout Analysis</h4>
+                                    <p class="text-xs text-slate-400 mt-1">Detección de cuadros delimitadores de código
+                                        en pantalla. Extraemos el texto del IDE (NetBeans/IntelliJ) visible en el vídeo
+                                        cada 5 segundos.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Code Extraction Example -->
+                    <div
+                        class="bg-slate-950 rounded-2xl border border-slate-800 p-6 font-mono text-xs shadow-inner flex flex-col h-full">
+                        <div class="flex items-center justify-between border-b border-slate-800 pb-4 mb-4">
+                            <span class="text-slate-500">extracted_sample_v04.json</span>
+                            <span class="text-emerald-500">Confidence: 98.4%</span>
+                        </div>
+                        <div class="overflow-y-auto custom-scroll flex-grow space-y-1 text-slate-300">
+                            <span class="text-indigo-400">{</span>
+                            <div class="pl-4">
+                                <span class="text-sky-300">"video_id"</span>: <span
+                                    class="text-amber-300">"YT-Jv_021"</span>,
+                            </div>
+                            <div class="pl-4">
+                                <span class="text-sky-300">"timestamp"</span>: <span
+                                    class="text-amber-300">"14:23"</span>,
+                            </div>
+                            <div class="pl-4">
+                                <span class="text-sky-300">"transcription"</span>: <span class="text-slate-400">"...y
+                                    aquí vemos que el bucle while necesita una condición de salida..."</span>,
+                            </div>
+                            <div class="pl-4">
+                                <span class="text-sky-300">"visual_code_context"</span>: <span
+                                    class="text-indigo-400">{</span>
+                            </div>
+                            <div class="pl-8">
+                                <span class="text-sky-300">"snippet"</span>: <span
+                                    class="text-green-400">"while(contador < 10) { System.out... }"</span>,
+                            </div>
+                            <div class="pl-8">
+                                <span class="text-sky-300">"ide_detected"</span>: <span class="text-amber-300">"IntelliJ
+                                    IDEA"</span>
+                            </div>
+                            <div class="pl-4">
+                                <span class="text-indigo-400">}</span>
+                            </div>
+                            <span class="text-indigo-400">}</span>
+                        </div>
+                        <div
+                            class="mt-4 pt-4 border-t border-slate-800 text-[10px] text-slate-600 text-center uppercase tracking-widest">
+                            Simarro Data Format Specification v2.1
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Static Documents Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- PDF Parsing -->
+                <div class="premium-card p-8 w-full">
+                    <div class="w-12 h-12 bg-rose-50 text-rose-600 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-file-pdf text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Ingesta de PDFs y Presentaciones</h3>
+                    <p class="text-slate-500 text-sm mb-6">
+                        Utilizamos <strong>Docling (IBM)</strong> para "entender" la estructura física de los
+                        documentos, no solo el texto plano.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-center text-sm text-slate-700 bg-slate-50 p-2 rounded-lg">
+                            <i class="fas fa-check-circle text-rose-500 mr-3"></i>
+                            Preservación de jerarquía H1-H6
+                        </li>
+                        <li class="flex items-center text-sm text-slate-700 bg-slate-50 p-2 rounded-lg">
+                            <i class="fas fa-check-circle text-rose-500 mr-3"></i>
+                            Reconstrucción de Tablas a Markdown
+                        </li>
+                        <li class="flex items-center text-sm text-slate-700 bg-slate-50 p-2 rounded-lg">
+                            <i class="fas fa-check-circle text-rose-500 mr-3"></i>
+                            OCR de diagramas UML en diapositivas
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Exam Processing -->
+                <div class="premium-card p-8 w-full">
+                    <div class="w-12 h-12 bg-amber-50 text-amber-600 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-scroll text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Banco de Exámenes (Q&A)</h3>
+                    <p class="text-slate-500 text-sm mb-6">
+                        Generación de pares sintéticos <span
+                            class="bg-amber-100 text-amber-800 px-1 py-0.5 rounded textxs font-bold">Pregunta <>
+                                Solución</span> a partir de exámenes de años anteriores.
+                    </p>
+                    <div class="relative pt-2">
+                        <div class="absolute left-4 top-0 bottom-0 w-0.5 bg-slate-200"></div>
+                        <div class="space-y-4 pl-8 relative">
+                            <div class="relative">
+                                <div
+                                    class="absolute -left-[2.35rem] top-1 w-3 h-3 bg-slate-400 rounded-full border-2 border-white">
+                                </div>
+                                <h4 class="text-xs font-bold text-slate-900 uppercase">Input</h4>
+                                <p class="text-xs text-slate-500 italic">"Examen Final Java 2023 - Ejercicio 3.pdf"</p>
+                            </div>
+                            <div class="relative">
+                                <div
+                                    class="absolute -left-[2.35rem] top-1 w-3 h-3 bg-amber-500 rounded-full border-2 border-white">
+                                </div>
+                                <h4 class="text-xs font-bold text-slate-900 uppercase">Output (SFT)</h4>
+                                <div
+                                    class="bg-slate-50 p-2 rounded text-[10px] font-mono text-slate-600 mt-1 border border-slate-200">
+                                    {"instruction": "Crea una clase Coche...", "response": "public class Coche { ... }"}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Privacy & Governance -->
+            <div class="bg-indigo-900 rounded-3xl p-10 text-center text-white relative overflow-hidden">
+                <div class="relative z-10 space-y-6">
+                    <div
+                        class="inline-flex items-center space-x-2 bg-indigo-800 px-4 py-1 rounded-full border border-indigo-700">
+                        <i class="fas fa-lock text-xs text-emerald-400"></i>
+                        <span class="text-xs font-bold tracking-widest uppercase">GDPR Compliance</span>
+                    </div>
+                    <h3 class="text-3xl font-bold">Privacidad y Limpieza del Dato</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left max-w-4xl mx-auto pt-6">
+                        <div class="space-y-2">
+                            <h4 class="font-bold text-indigo-300">Sanitización PII</h4>
+                            <p class="text-sm text-indigo-100">Algoritmos de NLP (NER) para detectar y ofuscar nombres
+                                reales de alumnos en repositorios de entregas antiguas.</p>
+                        </div>
+                        <div class="space-y-2">
+                            <h4 class="font-bold text-indigo-300">Deduplicación Semántica</h4>
+                            <p class="text-sm text-indigo-100">Eliminación de redundancia. Si 50 alumnos resolvieron el
+                                "Hola Mundo" igual, solo guardamos una instancia canónica.</p>
+                        </div>
+                        <div class="space-y-2">
+                            <h4 class="font-bold text-indigo-300">Quality Filtering</h4>
+                            <p class="text-sm text-indigo-100">Descarte automático de código que no compila o carece de
+                                comentarios javadoc mínimos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white border-t border-slate-200 py-12">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col items-center text-center">
+            <div class="space-y-6">
+                <div class="flex items-center justify-center space-x-4">
+                    <img src="logo-simarro.jpg" alt="Logo Simarro"
+                        class="h-12 opacity-80 hover:grayscale-0 transition-all">
+                    <span class="text-xl font-bold text-slate-500">IES Dr. Lluís Simarro</span>
+                </div>
+                <p class="text-lg text-slate-500 max-w-2xl mx-auto">Documentación técnica para el Proyecto como Centro
+                    de Excelencia Nacional en IA y Big Data.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

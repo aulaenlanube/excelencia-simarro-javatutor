@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaTutor AI - Hoja de Ruta</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-slate-50 text-slate-900">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center space-x-4">
+                    <img src="logo-simarro.jpg" alt="Logo Simarro" class="h-[72px] w-auto">
+                    <div class="h-8 w-px bg-slate-200"></div>
+                    <div>
+                        <span class="block text-xl font-extrabold tracking-tight text-slate-900">JavaTutor <span
+                                class="text-indigo-600 border-b-2 border-indigo-600/20">AI</span></span>
+                        <span class="text-[10px] uppercase tracking-wider font-bold text-slate-400">Centro de Excelencia
+                            Nacional IA</span>
+                    </div>
+                </div>
+
+                <div class="hidden lg:flex items-center space-x-8 text-sm font-semibold">
+                    <a href="index.html" class="nav-link px-2 py-1">Proyecto</a>
+                    <a href="dataset.html" class="nav-link px-2 py-1">Dataset</a>
+                    <a href="guide.html" class="nav-link px-2 py-1">Guía Técnica</a>
+                    <a href="infra.html" class="nav-link px-2 py-1">Hardware</a>
+                    <a href="roadmap.html" class="nav-link px-2 py-1 active">Hoja de Ruta</a>
+                </div>
+
+                <div class="flex items-center lg:hidden">
+                    <button onclick="toggleMobileMenu()" class="p-2 text-slate-600">
+                        <i class="fas fa-bars text-2xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-200 px-6 py-6 space-y-4 shadow-xl">
+            <a href="index.html" class="block w-full text-left font-bold text-slate-700">Proyecto</a>
+            <a href="dataset.html" class="block w-full text-left font-bold text-slate-700">Dataset</a>
+            <a href="guide.html" class="block w-full text-left font-bold text-slate-700">Guía Técnica</a>
+            <a href="infra.html" class="block w-full text-left font-bold text-slate-700">Hardware</a>
+            <a href="roadmap.html" class="block w-full text-left font-bold text-slate-700">Hoja de Ruta</a>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <!-- SECTION: ROADMAP -->
+        <section id="road" class="page-content space-y-16">
+            <div class="text-center max-w-3xl mx-auto mb-16 animate-pulse-soft">
+                <span
+                    class="px-3 py-1 bg-indigo-50 border border-indigo-100 text-indigo-700 text-xs font-bold tracking-widest uppercase rounded-full">Strategic
+                    Timeline</span>
+                <h2 class="text-4xl font-extrabold text-slate-900 mt-4">Hoja de Ruta de Implantación</h2>
+                <p class="text-slate-600 mt-4">Planificación estratégica para el desarrollo y despliegue del asistente
+                    IA en el ciclo formativo.</p>
+            </div>
+
+            <div class="relative">
+                <!-- Vertical Line -->
+                <div
+                    class="hidden md:block absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-indigo-100 via-indigo-200 to-indigo-50 transform -translate-x-1/2 rounded-full">
+                </div>
+
+                <div class="space-y-24 relative">
+
+                    <!-- Quarter 1 (Left) -->
+                    <div
+                        class="roadmap-item flex flex-col md:flex-row items-center justify-between group stagger-1 page-content">
+                        <div
+                            class="md:w-5/12 order-2 md:order-1 premium-card p-8 border-l-4 border-l-indigo-500 hover:border-l-indigo-600">
+                            <div class="flex justify-between items-start mb-4">
+                                <span
+                                    class="text-xs font-bold text-indigo-600 uppercase tracking-widest bg-indigo-50 px-2 py-1 rounded">Fase
+                                    1: Ingesta</span>
+                                <span class="text-4xl font-black text-slate-200">Q1 2026</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-slate-900 mb-4">Curación del Dataset & Gobernanza</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                                Inicio masivo de la recolección de datos multimodales. Se desplegarán pipelines de
+                                extracción automática utilizando <strong>Whisper V3</strong> para las videotecas de
+                                clases grabadas y <strong>Docling</strong> para la digitalización de apuntes PDF y
+                                presentaciones.
+                            </p>
+                            <ul class="space-y-2 text-sm text-slate-500">
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>Anonimización estricta de PII (GDPR
+                                    Compliant).</li>
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>Generación sintética de pares Q&A.
+                                </li>
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>Formateo final a JSONL
+                                    estandarizado.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Middle Dot -->
+                        <div
+                            class="roadmap-point w-10 h-10 bg-indigo-600 rounded-full border-4 border-white shadow-xl hidden md:flex items-center justify-center absolute left-1/2 transform -translate-x-1/2 z-10 group-hover:scale-125 transition-transform duration-300">
+                            <i class="fas fa-database text-white text-xs"></i>
+                        </div>
+
+                        <div
+                            class="md:w-5/12 order-1 md:order-2 pl-0 md:pl-12 pb-8 md:pb-0 text-center md:text-left transition-opacity duration-500 opacity-50 group-hover:opacity-100">
+                            <p class="text-sm font-bold text-slate-400 uppercase tracking-widest">Objetivo Clave</p>
+                            <p class="text-xl font-semibold text-slate-700">"Quality Data is all you need"</p>
+                        </div>
+                    </div>
+
+                    <!-- Quarter 2-3 (Right) -->
+                    <div
+                        class="roadmap-item flex flex-col md:flex-row items-center justify-between group stagger-2 page-content">
+                        <div
+                            class="md:w-5/12 order-2 md:order-1 pr-0 md:pr-12 pb-8 md:pb-0 text-center md:text-right transition-opacity duration-500 opacity-50 group-hover:opacity-100">
+                            <p class="text-sm font-bold text-slate-400 uppercase tracking-widest">Hito Técnico</p>
+                            <p class="text-xl font-semibold text-slate-700">Model Convergence</p>
+                        </div>
+
+                        <!-- Middle Dot -->
+                        <div
+                            class="roadmap-point w-10 h-10 bg-white border-4 border-emerald-500 rounded-full shadow-xl hidden md:flex items-center justify-center absolute left-1/2 transform -translate-x-1/2 z-10 group-hover:scale-125 transition-transform duration-300">
+                            <i class="fas fa-cogs text-emerald-500 text-xs"></i>
+                        </div>
+
+                        <div
+                            class="md:w-5/12 order-2 md:order-2 premium-card p-8 border-l-4 border-l-emerald-500 hover:border-l-emerald-600">
+                            <div class="flex justify-between items-start mb-4">
+                                <span
+                                    class="text-xs font-bold text-emerald-600 uppercase tracking-widest bg-emerald-50 px-2 py-1 rounded">Fase
+                                    2: Tuning</span>
+                                <span class="text-4xl font-black text-slate-200">Q2-Q3 2026</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-slate-900 mb-4">Entrenamiento y Validación</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                                Ejecución intensiva de <strong>Full Fine-Tuning</strong> en el cluster del Nodo Titán.
+                                Se realizarán iteraciones semanales ajustando hiperparámetros (learning rate, LoRA rank)
+                                para minimizar la función de pérdida sin caer en overfitting.
+                            </p>
+                            <ul class="space-y-2 text-sm text-slate-500">
+                                <li><i class="fas fa-flask text-emerald-500 mr-2"></i>Evaluación continua con benchmarks
+                                    de código (HumanEval).</li>
+                                <li><i class="fas fa-flask text-emerald-500 mr-2"></i>Validación cruzada con exámenes de
+                                    años anteriores.</li>
+                                <li><i class="fas fa-flask text-emerald-500 mr-2"></i>Ajuste de System Prompts para tono
+                                    pedagógico.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Quarter 4 (Left) -->
+                    <div
+                        class="roadmap-item flex flex-col md:flex-row items-center justify-between group stagger-3 page-content">
+                        <div
+                            class="md:w-5/12 order-2 md:order-1 premium-card p-8 border-l-4 border-l-indigo-500 hover:border-l-indigo-600">
+                            <div class="flex justify-between items-start mb-4">
+                                <span
+                                    class="text-xs font-bold text-indigo-600 uppercase tracking-widest bg-indigo-50 px-2 py-1 rounded">Fase
+                                    3: Piloto</span>
+                                <span class="text-4xl font-black text-slate-200">Q4 2026</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-slate-900 mb-4">Despliegue en Aula (Producción)</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                                Lanzamiento de la versión v1.0 para estudiantes. Integración final de los <strong>Nodos
+                                    SPARK</strong> para servir inferencia en tiempo real a las aulas mediante la
+                                extensión de VS Code.
+                            </p>
+                            <ul class="space-y-2 text-sm text-slate-500">
+                                <li><i class="fas fa-rocket text-indigo-500 mr-2"></i>Instalación de Plugin VS Code en
+                                    equipos de laboratorio.</li>
+                                <li><i class="fas fa-rocket text-indigo-500 mr-2"></i>Monitorización de latencia y
+                                    throughput bajo carga real.</li>
+                                <li><i class="fas fa-rocket text-indigo-500 mr-2"></i>Recogida de Feedback directo de
+                                    alumnos y profesores.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Middle Dot -->
+                        <div
+                            class="roadmap-point w-10 h-10 bg-white border-4 border-indigo-600 rounded-full shadow-xl hidden md:flex items-center justify-center absolute left-1/2 transform -translate-x-1/2 z-10 group-hover:scale-125 transition-transform duration-300">
+                            <i class="fas fa-flag-checkered text-indigo-600 text-xs"></i>
+                        </div>
+
+                        <div
+                            class="md:w-5/12 order-1 md:order-2 pl-0 md:pl-12 pb-8 md:pb-0 text-center md:text-left transition-opacity duration-500 opacity-50 group-hover:opacity-100">
+                            <p class="text-sm font-bold text-slate-400 uppercase tracking-widest">Go Live</p>
+                            <p class="text-xl font-semibold text-slate-700">Impacto Real en el Aula</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white border-t border-slate-200 py-12">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col items-center text-center">
+            <div class="space-y-6">
+                <div class="flex items-center justify-center space-x-4">
+                    <img src="logo-simarro.jpg" alt="Logo Simarro"
+                        class="h-12 opacity-80 hover:grayscale-0 transition-all">
+                    <span class="text-xl font-bold text-slate-500">IES Dr. Lluís Simarro</span>
+                </div>
+                <p class="text-lg text-slate-500 max-w-2xl mx-auto">Documentación técnica para el Proyecto como Centro
+                    de Excelencia Nacional en IA y Big Data.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
