@@ -9,8 +9,6 @@
 
 **JavaTutor IA** es un asistente pedagógico inteligente diseñado específicamente para los ciclos de Desarrollo de Aplicaciones (DAM/DAW) del **IES Dr. Lluís Simarro**. A diferencia de otros asistentes genéricos, JavaTutor está entrenado con el "pedagogía alineada", enfocándose en guiar al alumno mediante el razonamiento socrático en lugar de simplemente entregar la solución final.
 
-![Preview](web/edificio-simarro.webp)
-
 ---
 
 ## 🌟 Pilares Estratégicos
