@@ -43,8 +43,8 @@ const HEADER_HTML = `
 const headerPlaceholder = document.getElementById("header-placeholder");
 if (headerPlaceholder) {
     headerPlaceholder.innerHTML = HEADER_HTML;
-    headerPlaceholder.className = "fixed top-0 w-full z-50";
-    document.body.classList.add("pt-20"); // Add padding to body to offset fixed header
+    // Layout classes handled in styles.css for reliability
+
 
     // Active link highlighting
     const currentPath = window.location.pathname.split("/").pop() || "index.html";

@@ -9,6 +9,19 @@ html {
     scroll-behavior: smooth;
 }
 
+/* Global Layout Fixes (Production Safe) */
+body {
+    padding-top: 5rem;
+    /* Ensure content is never hidden behind fixed header */
+}
+
+#header-placeholder {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 50;
+}
+
 /* Custom Animation Keyframes */
 @keyframes moveRightShort {
     0% {
