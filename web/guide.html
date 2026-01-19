@@ -23,7 +23,7 @@
         <div class="text-center max-w-4xl mx-auto space-y-6 mb-20 page-content">
             <span
                 class="px-4 py-1.5 bg-indigo-600 text-white text-[10px] font-black tracking-[0.2em] uppercase rounded-full shadow-lg shadow-indigo-200">
-                Core Engineering Manual
+                Manual de Ingeniería Principal
             </span>
             <h1 class="text-5xl md:text-6xl font-black text-slate-900 tracking-tight">
                 Metodología de <span class="text-indigo-600">Fine-Tuning</span>
@@ -38,8 +38,8 @@
         <section id="methodology" class="space-y-16 mb-24">
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <!-- Step A: Data Curation -->
-                <div
-                    class="bg-white rounded-[2rem] p-8 border border-slate-200 shadow-sm hover:shadow-xl transition-all group page-content stagger-1">
+                <div class="bg-white rounded-[2rem] p-8 border border-slate-200 shadow-sm hover:shadow-xl transition-all group page-content animate-fade-in-up"
+                    style="animation-delay: 0.1s">
                     <div
                         class="w-14 h-14 bg-indigo-100 rounded-2xl flex items-center justify-center text-indigo-600 mb-6 group-hover:scale-110 transition-transform">
                         <i class="fas fa-filter text-2xl"></i>
@@ -66,8 +66,8 @@
                 </div>
 
                 <!-- Step B: Architecture -->
-                <div
-                    class="bg-white rounded-[2rem] p-8 border border-slate-200 shadow-sm hover:shadow-xl transition-all group page-content stagger-2">
+                <div class="bg-white rounded-[2rem] p-8 border border-slate-200 shadow-sm hover:shadow-xl transition-all group page-content animate-fade-in-up"
+                    style="animation-delay: 0.2s">
                     <div
                         class="w-14 h-14 bg-emerald-100 rounded-2xl flex items-center justify-center text-emerald-600 mb-6 group-hover:scale-110 transition-transform">
                         <i class="fas fa-project-diagram text-2xl"></i>
@@ -82,11 +82,11 @@
                         </p>
                         <div
                             class="bg-slate-50 p-4 rounded-xl font-mono text-[10px] text-slate-600 border border-slate-100">
-                            <span class="text-emerald-600 font-bold">Rank (r):</span> 64 <span
+                            <span class="text-emerald-600 font-bold">Rango (r):</span> 64 <span
                                 class="text-slate-300 mx-2">|</span>
                             <span class="text-emerald-600 font-bold">Alpha:</span> 32<br>
-                            <span class="text-emerald-600 font-bold">Target:</span> q_proj, k_proj, v_proj, o_proj<br>
-                            <span class="text-emerald-600 font-bold">Dropout:</span> 0.05
+                            <span class="text-emerald-600 font-bold">Objetivo:</span> q_proj, k_proj, v_proj, o_proj<br>
+                            <span class="text-emerald-600 font-bold">Abandono (Dropout):</span> 0.05
                         </div>
                         <p class="text-xs text-slate-400">
                             Esto reduce el uso de VRAM de 160GB a menos de 48GB, permitiendo entrenar en configuraciones
@@ -96,8 +96,8 @@
                 </div>
 
                 <!-- Step C: Optimization -->
-                <div
-                    class="bg-white rounded-[2rem] p-8 border border-slate-200 shadow-sm hover:shadow-xl transition-all group page-content stagger-3">
+                <div class="bg-white rounded-[2rem] p-8 border border-slate-200 shadow-sm hover:shadow-xl transition-all group page-content animate-fade-in-up"
+                    style="animation-delay: 0.3s">
                     <div
                         class="w-14 h-14 bg-amber-100 rounded-2xl flex items-center justify-center text-amber-600 mb-6 group-hover:scale-110 transition-transform">
                         <i class="fas fa-microchip text-2xl"></i>
@@ -111,7 +111,7 @@
                         <div class="bg-amber-50 p-4 rounded-xl border border-amber-100">
                             <div class="flex items-center gap-2 mb-2">
                                 <i class="fas fa-bolt text-amber-500 text-xs"></i>
-                                <span class="text-[10px] font-black uppercase text-amber-700">Hardware Optimized</span>
+                                <span class="text-[10px] font-black uppercase text-amber-700">Hardware Optimizado</span>
                             </div>
                             <p class="text-[11px] text-amber-800/80 leading-tight">
                                 El nodo <strong>NVIDIA DGX SPARK (Architecture Blackwell)</strong> está diseñado
@@ -124,7 +124,7 @@
                         <div class="flex-grow h-2 bg-slate-100 rounded-full overflow-hidden">
                             <div class="h-full bg-amber-500 w-[95%]"></div>
                         </div>
-                        <span class="text-[10px] font-bold text-slate-400">95% Efficiency on Blackwell</span>
+                        <span class="text-[10px] font-bold text-slate-400">95% de Eficiencia en Blackwell</span>
                     </div>
                 </div>
             </div>
@@ -139,7 +139,8 @@
                 <div class="h-px flex-grow bg-slate-200"></div>
             </div>
 
-            <div class="bg-indigo-900 rounded-[2.5rem] p-8 md:p-12 text-white relative overflow-hidden">
+            <div class="bg-indigo-900 rounded-[2.5rem] p-8 md:p-12 text-white relative overflow-hidden animate-fade-in-up"
+                style="animation-delay: 0.4s">
                 <div class="absolute top-0 right-0 p-8 opacity-10"><i class="fas fa-magic text-9xl"></i></div>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
                     <div class="space-y-6">
@@ -207,7 +208,8 @@
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <!-- Docker Card -->
-                <div class="bg-white rounded-[2.5rem] border border-slate-200 p-10 flex flex-col justify-between">
+                <div class="bg-white rounded-[2.5rem] border border-slate-200 p-10 flex flex-col justify-between animate-fade-in-up"
+                    style="animation-delay: 0.5s">
                     <div>
                         <div class="w-14 h-14 bg-sky-50 text-sky-600 rounded-2xl flex items-center justify-center mb-6">
                             <i class="fab fa-docker text-2xl"></i>
@@ -228,8 +230,8 @@
                 </div>
 
                 <!-- Training Card -->
-                <div
-                    class="bg-indigo-600 rounded-[2.5rem] p-10 text-white flex flex-col justify-between shadow-xl shadow-indigo-200">
+                <div class="bg-indigo-600 rounded-[2.5rem] p-10 text-white flex flex-col justify-between shadow-xl shadow-indigo-200 animate-fade-in-up"
+                    style="animation-delay: 0.6s">
                     <div>
                         <div class="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center mb-6">
                             <i class="fas fa-dumbbell text-2xl"></i>
@@ -311,7 +313,7 @@
         </section>
 
         <!-- FINAL SECTION: EXPORT -->
-        <section id="export" class="mb-24 page-content">
+        <section id="export" class="mb-24 page-content animate-fade-in-up" style="animation-delay: 0.7s">
             <div class="bg-slate-900 rounded-[3rem] p-12 text-center text-white space-y-6">
                 <i class="fas fa-check-double text-5xl text-emerald-400 mb-4"></i>
                 <h3 class="text-3xl font-black">Modelo Listo para el Éxito</h3>

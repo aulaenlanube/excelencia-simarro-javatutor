@@ -162,6 +162,55 @@ body {
     }
 }
 
+@keyframes bounce-up-down {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Traveling dot on line */
+@keyframes line-travel {
+    0% {
+        top: 0;
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        top: 100%;
+        opacity: 0;
+    }
+}
+
+.line-dot {
+    position: absolute;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    background: #4f46e5;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 10px #4f46e5, 0 0 20px #4f46e5;
+    animation: line-travel 4s linear infinite;
+}
+
+.animate-bounce-up-down {
+    animation: bounce-up-down 2s ease-in-out infinite;
+}
+
 @keyframes title-reveal-up {
     0% {
         transform: translateY(20px);
@@ -187,7 +236,9 @@ body {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: text-gradient-sweep 4s linear infinite, title-reveal-up 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+    padding-bottom: 0.25em;
+    margin-bottom: -0.25em;
+    animation: text-gradient-sweep 8s linear infinite, title-reveal-up 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .glow-sweep {
@@ -206,6 +257,22 @@ body {
     transform: translate(-50%, -50%);
     z-index: -1;
     animation: pulse-slow 6s ease-in-out infinite;
+}
+
+@keyframes fade-in-up {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out forwards;
 }
 
 /* Code block handling */

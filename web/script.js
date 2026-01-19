@@ -73,7 +73,53 @@ function initCharts() {
 
 
 
+// --- TYPING EFFECT ---
+function initTypingEffect() {
+    const textElement = document.getElementById('typing-text');
+    if (!textElement) return;
+
+    const phrases = [
+        "el Simarro",
+        "FP",
+        "DAM",
+        "DAW"
+    ];
+
+    let phraseIndex = 0;
+    let characterIndex = 0;
+    let isDeleting = false;
+    let typingSpeed = 100;
+
+    function type() {
+        const currentPhrase = phrases[phraseIndex];
+
+        if (isDeleting) {
+            textElement.textContent = currentPhrase.substring(0, characterIndex - 1);
+            characterIndex--;
+            typingSpeed = 50;
+        } else {
+            textElement.textContent = currentPhrase.substring(0, characterIndex + 1);
+            characterIndex++;
+            typingSpeed = 150;
+        }
+
+        if (!isDeleting && characterIndex === currentPhrase.length) {
+            isDeleting = true;
+            typingSpeed = 3000; // Aumentada de 2000 a 3000ms
+        } else if (isDeleting && characterIndex === 0) {
+            isDeleting = false;
+            phraseIndex = (phraseIndex + 1) % phrases.length;
+            typingSpeed = 1000; // Aumentada de 500 a 1000ms
+        }
+
+        setTimeout(type, typingSpeed);
+    }
+
+    type();
+}
+
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
     initCharts();
+    initTypingEffect();
 });
