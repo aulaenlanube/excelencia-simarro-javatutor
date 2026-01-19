@@ -129,6 +129,35 @@ html {
     animation: float 6s ease-in-out infinite;
 }
 
+
 .animate-pulse-soft {
     animation: pulse-slow 4s ease-in-out infinite;
+}
+
+/* Code block handling */
+pre,
+code {
+    white-space: pre-wrap;
+    word-break: break-all;
+    overflow-wrap: break-word;
+}
+
+/* Custom Scrollbar */
+.custom-scroll::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
 }

@@ -45,17 +45,23 @@
                         <i class="fas fa-filter text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-bold text-slate-900 mb-4">1. Curación de Datos</h3>
-                    <p class="text-sm text-slate-500 leading-relaxed mb-6">
-                        No entrenamos con texto plano. Convertimos documentación técnica y vídeos en pares de
-                        <strong>Instrucción / Respuesta</strong>.
-                    </p>
-                    <ul class="space-y-3 text-xs font-semibold text-slate-600">
+                    <div class="space-y-4">
+                        <p class="text-sm text-slate-500 leading-relaxed">
+                            No entrenamos con texto plano. Transformamos documentación técnica, ejercicios resueltos y
+                            grabaciones en pares de <strong>Instrucción / Respuesta</strong> altamente estructurados.
+                        </p>
+                        <p class="text-xs text-slate-400 bg-slate-50 p-3 rounded-lg border-l-4 border-indigo-400">
+                            La clave es la "Deduplicación Semántica": eliminamos conceptos redundantes para que el
+                            modelo aprenda conceptos únicos con máxima eficiencia.
+                        </p>
+                    </div>
+                    <ul class="mt-6 space-y-3 text-xs font-semibold text-slate-600">
                         <li class="flex items-center gap-2 text-indigo-600"><i class="fas fa-check-circle"></i> Limpieza
-                            de ruido HTML/SST</li>
+                            de ruido HTML/SST con Regex avanzado</li>
                         <li class="flex items-center gap-2 text-indigo-600"><i class="fas fa-check-circle"></i>
-                            Verificación sintáctica Java</li>
+                            Verificación sintáctica con linters de Java</li>
                         <li class="flex items-center gap-2 text-indigo-600"><i class="fas fa-check-circle"></i> Formateo
-                            Alpaca/ShareGPT</li>
+                            compatible con Unsloth / Axolotl</li>
                     </ul>
                 </div>
 
@@ -66,15 +72,25 @@
                         class="w-14 h-14 bg-emerald-100 rounded-2xl flex items-center justify-center text-emerald-600 mb-6 group-hover:scale-110 transition-transform">
                         <i class="fas fa-project-diagram text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-4">2. Configuración LoRA</h3>
-                    <p class="text-sm text-slate-500 leading-relaxed mb-6">
-                        Usamos <strong>Low-Rank Adaptation</strong> para entrenar solo el 1-2% de los pesos del modelo,
-                        manteniendo la base intacta.
-                    </p>
-                    <div class="bg-slate-50 p-4 rounded-xl font-mono text-[10px] text-slate-600">
-                        Rank (r): 64<br>
-                        Alpha: 32<br>
-                        Target: All Linear Layers
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">2. Configuración QLoRA</h3>
+                    <div class="space-y-4">
+                        <p class="text-sm text-slate-500 leading-relaxed">
+                            Implementamos <strong>PEFT (Parameter-Efficient Fine-Tuning)</strong> mediante LoRA. En
+                            lugar de actualizar los 8 mil millones de pesos, inyectamos pequeñas matrices de rango bajo
+                            en las capas lineales.
+                        </p>
+                        <div
+                            class="bg-slate-50 p-4 rounded-xl font-mono text-[10px] text-slate-600 border border-slate-100">
+                            <span class="text-emerald-600 font-bold">Rank (r):</span> 64 <span
+                                class="text-slate-300 mx-2">|</span>
+                            <span class="text-emerald-600 font-bold">Alpha:</span> 32<br>
+                            <span class="text-emerald-600 font-bold">Target:</span> q_proj, k_proj, v_proj, o_proj<br>
+                            <span class="text-emerald-600 font-bold">Dropout:</span> 0.05
+                        </div>
+                        <p class="text-xs text-slate-400">
+                            Esto reduce el uso de VRAM de 160GB a menos de 48GB, permitiendo entrenar en configuraciones
+                            multitarjeta RTX PRO 6000.
+                        </p>
                     </div>
                 </div>
 
@@ -86,15 +102,28 @@
                         <i class="fas fa-microchip text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-bold text-slate-900 mb-4">3. Cuantización 4-bit</h3>
-                    <p class="text-sm text-slate-500 leading-relaxed mb-6">
-                        Cargamos el modelo base en <strong>NF4</strong> (NormalFloat 4bits) para que quepa en memoria
-                        manteniendo la precisión BF16.
-                    </p>
-                    <div class="flex items-center gap-4">
-                        <div class="flex-grow h-2 bg-slate-100 rounded-full overflow-hidden">
-                            <div class="h-full bg-amber-500 w-[85%]"></div>
+                    <div class="space-y-4">
+                        <p class="text-sm text-slate-500 leading-relaxed">
+                            Convertimos los pesos de 16-bit a <strong>4-bit NF4</strong>. Esta técnica de compresión
+                            extrema es vital para la inferencia en tiempo real sin sacrificar apenas precisión.
+                        </p>
+                        <div class="bg-amber-50 p-4 rounded-xl border border-amber-100">
+                            <div class="flex items-center gap-2 mb-2">
+                                <i class="fas fa-bolt text-amber-500 text-xs"></i>
+                                <span class="text-[10px] font-black uppercase text-amber-700">Hardware Optimized</span>
+                            </div>
+                            <p class="text-[11px] text-amber-800/80 leading-tight">
+                                El nodo <strong>NVIDIA DGX SPARK (Architecture Blackwell)</strong> está diseñado
+                                específicamente para acelerar modelos cuantizados a 4-bit, duplicando el rendimiento de
+                                tokens por segundo.
+                            </p>
                         </div>
-                        <span class="text-[10px] font-bold text-slate-400">85% VRAM Eficiency</span>
+                    </div>
+                    <div class="mt-6 flex items-center gap-4">
+                        <div class="flex-grow h-2 bg-slate-100 rounded-full overflow-hidden">
+                            <div class="h-full bg-amber-500 w-[95%]"></div>
+                        </div>
+                        <span class="text-[10px] font-bold text-slate-400">95% Efficiency on Blackwell</span>
                     </div>
                 </div>
             </div>
@@ -133,12 +162,12 @@
                         </div>
                     </div>
                     <div
-                        class="bg-black/40 rounded-3xl p-6 border border-white/5 font-mono text-[11px] text-slate-300 shadow-2xl">
+                        class="bg-black/40 rounded-3xl p-6 border border-white/5 font-mono text-[11px] text-slate-300 shadow-2xl overflow-hidden">
                         <div class="flex items-center gap-2 mb-4 border-b border-white/10 pb-2">
                             <div class="w-2 h-2 rounded-full bg-emerald-500"></div>
                             <span class="text-slate-500 tracking-tight">Ejemplo de entrenamiento (.json)</span>
                         </div>
-                        <pre class="custom-scroll">
+                        <pre class="custom-scroll overflow-x-auto">
 {
   "pregunta": "¿Por qué mi código Java no compila?",
   "contexto": "Alumno de 1º DAM",
@@ -189,7 +218,8 @@
                             potente del centro, sin errores de instalación.
                         </p>
                     </div>
-                    <div class="bg-slate-900 rounded-2xl p-4 font-mono text-[10px] text-sky-400">
+                    <div
+                        class="bg-slate-900 rounded-2xl p-4 font-mono text-[10px] text-sky-400 overflow-x-auto custom-scroll">
                         # Empaquetando el motor de IA<br>
                         FROM nvidia/cuda:12.1<br>
                         RUN pip install ai-tools
@@ -266,7 +296,8 @@
                         </div>
                         <h4 class="text-xs font-black text-slate-400 uppercase tracking-[0.2em] mb-6">Vista del
                             Programador</h4>
-                        <div class="bg-slate-900 rounded-2xl p-6 font-mono text-[11px] text-white">
+                        <div
+                            class="bg-slate-900 rounded-2xl p-6 font-mono text-[11px] text-white overflow-x-auto custom-scroll">
                             <span class="text-emerald-400">// La IA le responde al alumno dentro de su
                                 editor:</span><br>
                             <span class="text-indigo-300">JavaTutor ></span> <span class="text-slate-400">"Veo que has
