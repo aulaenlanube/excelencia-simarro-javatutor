@@ -1,5 +1,5 @@
 const HEADER_HTML = `
-<nav class="sticky top-0 z-50 border-b border-slate-200">
+<nav class="bg-white border-b border-slate-200 shadow-sm transition-all duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-20">
             <div class="flex items-center space-x-4">
@@ -43,6 +43,7 @@ const HEADER_HTML = `
 const headerPlaceholder = document.getElementById("header-placeholder");
 if (headerPlaceholder) {
     headerPlaceholder.innerHTML = HEADER_HTML;
+    headerPlaceholder.className = "sticky top-0 z-50";
 
     // Active link highlighting
     const currentPath = window.location.pathname.split("/").pop() || "index.html";

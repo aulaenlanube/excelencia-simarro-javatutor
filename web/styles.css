@@ -130,8 +130,66 @@ html {
 }
 
 
+
 .animate-pulse-soft {
     animation: pulse-slow 4s ease-in-out infinite;
+}
+
+/* Premium Roadmap Header Effects */
+@keyframes text-gradient-sweep {
+    0% {
+        background-position: 0% center;
+    }
+
+    100% {
+        background-position: -200% center;
+    }
+}
+
+@keyframes title-reveal-up {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+        filter: blur(5px);
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+
+.text-reveal-luxury {
+    background: linear-gradient(to right,
+            #0f172a,
+            #4f46e5,
+            #7c3aed,
+            #4f46e5,
+            #0f172a);
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: text-gradient-sweep 4s linear infinite, title-reveal-up 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.glow-sweep {
+    position: relative;
+    overflow: hidden;
+}
+
+.glow-sweep::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(79, 70, 229, 0.08) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    animation: pulse-slow 6s ease-in-out infinite;
 }
 
 /* Code block handling */
