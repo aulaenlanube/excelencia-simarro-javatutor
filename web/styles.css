@@ -1,9 +1,5 @@
 /* Custom Animations and Base Styles */
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 /* Smooth scrolling */
 html {
     scroll-behavior: smooth;
@@ -177,15 +173,35 @@ body {
 /* Traveling dot on line */
 @keyframes line-travel {
     0% {
-        top: 0;
+        top: 0%;
         opacity: 0;
     }
 
-    10% {
+    5% {
         opacity: 1;
     }
 
-    90% {
+    95% {
+        opacity: 1;
+    }
+
+    100% {
+        top: 100%;
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes line-travel {
+    0% {
+        top: 0%;
+        opacity: 0;
+    }
+
+    5% {
+        opacity: 1;
+    }
+
+    95% {
         opacity: 1;
     }
 
@@ -203,8 +219,11 @@ body {
     background: #4f46e5;
     border-radius: 50%;
     transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
     box-shadow: 0 0 10px #4f46e5, 0 0 20px #4f46e5;
     animation: line-travel 4s linear infinite;
+    -webkit-animation: line-travel 4s linear infinite;
+    z-index: 10;
 }
 
 .animate-bounce-up-down {
