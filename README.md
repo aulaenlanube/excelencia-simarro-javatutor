@@ -1,8 +1,11 @@
 # JavaTutor IA 🤖📚
 
-[![IES Dr. Lluís Simarro](https://img.shields.io/badge/Institución-IES%20Dr.%20Lluís%20Simarro-indigo.svg)](https://aulalluissimarro.es/)
-[![Centro de Excelencia](https://img.shields.io/badge/Centro-Excelencia%20Nacional%20IA-emerald.svg)](#)
-[![Status](https://img.shields.io/badge/Status-Roadmap%202026-amber.svg)](#roadmap)
+
+
+[![Estado](https://img.shields.io/badge/Estado-Desarrollo-yellow)]()
+[![Release](https://img.shields.io/badge/Release-v0.0.1-blue)]()
+[![License](https://img.shields.io/badge/License-Apache--2.0-green)]()
+[![Arquitectura](https://img.shields.io/badge/Arquitectura-Blackwell-black?logo=nvidia)]()
 
 **JavaTutor IA** es un asistente pedagógico inteligente diseñado específicamente para los ciclos de Desarrollo de Aplicaciones (DAM/DAW) del **IES Dr. Lluís Simarro**. A diferencia de otros asistentes genéricos, JavaTutor está entrenado con el "pedagogía alineada", enfocándose en guiar al alumno mediante el razonamiento socrático en lugar de simplemente entregar la solución final.
 
@@ -70,14 +73,6 @@ Implementamos técnicas de vanguardia para garantizar un modelo eficiente y prec
 2.  **Q2-Q3 2026 - Fase de Tuning:** Ciclos de entrenamiento intensivo en Nodo Titán y validación pedagógica.
 3.  **Q4 2026 - Fase Piloto:** Despliegue en aula, integración VS Code y monitorización de KPIs de rendimiento.
 
----
-
-## 📄 Licencia e Institución
-
-Este proyecto es parte de la iniciativa de innovación tecnológica del **IES Dr. Lluís Simarro**, reconocido como **Centro de Excelencia Nacional en Inteligencia Artificial y Big Data**.
-
-- **Web del Centro:** [IES Dr. Lluís Simarro](https://aulalluissimarro.es/)
-- **Proyecto:** JavaTutor IA - Propuesta Técnica 2026
 
 ---
 *Desarrollado con ❤️ para la comunidad docente del IES Simarro.*
