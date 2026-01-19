@@ -18,6 +18,11 @@ const HEADER_HTML = `
                 <a href="guide.html" class="nav-link px-2 py-1">Guía Técnica</a>
                 <a href="infra.html" class="nav-link px-2 py-1">Hardware</a>
                 <a href="roadmap.html" class="nav-link px-2 py-1">Hoja de Ruta</a>
+                <div class="h-6 w-px bg-slate-200 mx-2"></div>
+                <a href="https://github.com/aulaenlanube/excelencia-simarro-javatutor" target="_blank" class="flex items-center space-x-2 px-4 py-2 bg-slate-900 text-white rounded-xl github-btn-hover group">
+                    <i class="fab fa-github text-lg"></i>
+                    <span>GitHub</span>
+                </a>
             </div>
 
             <div class="flex items-center lg:hidden">
@@ -80,6 +85,13 @@ const HEADER_HTML = `
                     <span class="text-[10px] text-slate-400 font-mono uppercase tracking-wider">Q4 2026</span>
                 </div>
             </a>
+
+            <div class="pt-4 border-t border-slate-100">
+                <a href="https://github.com/aulaenlanube/excelencia-simarro-javatutor" target="_blank" class="flex items-center justify-center space-x-3 p-4 rounded-2xl bg-slate-900 text-white github-btn-hover shadow-lg shadow-slate-200">
+                    <i class="fab fa-github text-xl"></i>
+                    <span class="font-bold">Ver en GitHub</span>
+                </a>
+            </div>
         </div>
     </div>
 </nav>

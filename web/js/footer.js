@@ -9,7 +9,18 @@ const FOOTER_HTML = `
             </div>
             <div class="h-px w-16 bg-gradient-to-r from-transparent via-slate-300 to-transparent mx-auto"></div>
             
-            
+            <div class="space-y-4">
+                <a href="https://github.com/aulaenlanube/excelencia-simarro-javatutor" target="_blank" 
+                   class="inline-flex items-center space-x-2 text-slate-500 hover:text-indigo-600 transition-colors group text-sm font-medium">
+                    <i class="fab fa-github text-lg group-hover:scale-110 transition-transform"></i>
+                    <span>Repositorio en GitHub</span>
+                </a>
+                
+                <p class="text-slate-400 text-xs mt-4">
+                    &copy; 2026 Aula en la Nube - IES Dr. Lluís Simarro. <br class="sm:hidden"> 
+                    Todos los derechos reservados.
+                </p>
+            </div>
         </div>
     </div>
 </footer>
