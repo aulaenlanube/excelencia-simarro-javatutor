@@ -119,7 +119,28 @@ function initTypingEffect() {
 }
 
 // Initialize
-document.addEventListener('DOMContentLoaded', () => {
-    initCharts();
-    initTypingEffect();
-});
+function startApp() {
+    // Priority 1: Typing effect (crucial for branding)
+    try {
+        initTypingEffect();
+    } catch (e) {
+        console.error("Error in typing effect:", e);
+    }
+
+    // Priority 2: Charts (may fail if dependency not loaded)
+    try {
+        if (typeof Chart !== 'undefined') {
+            initCharts();
+        } else {
+            console.warn("Chart.js not found. Skipping charts.");
+        }
+    } catch (e) {
+        console.error("Error initializing charts:", e);
+    }
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', startApp);
+} else {
+    startApp();
+}
