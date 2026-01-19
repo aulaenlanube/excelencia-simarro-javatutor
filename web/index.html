@@ -33,7 +33,7 @@
                         <span>Propuesta Técnica 2026</span>
                     </div>
                     <h1 class="text-5xl lg:text-6xl font-extrabold text-slate-900 leading-tight">
-                        La Revolución del Aula en <span class="text-gradient">DAM</span>
+                        La Revolución del Aula en <span class="text-gradient">FP</span>
                     </h1>
                     <p class="text-lg text-slate-600 leading-relaxed">
                         Implementación de <strong>JavaTutor IA</strong>: Un asistente pedagógico inteligente diseñado
@@ -69,12 +69,55 @@
 
                     <!-- Inner Core -->
                     <div
-                        class="relative z-10 w-32 h-32 lg:w-48 lg:h-48 bg-white rounded-3xl shadow-2xl border border-slate-100 flex items-center justify-center group animate-float">
+                        class="relative z-10 w-48 h-48 lg:w-64 lg:h-64 bg-white rounded-[2.5rem] shadow-2xl border border-slate-100 flex items-center justify-center group animate-float">
                         <div
                             class="absolute inset-0 bg-gradient-to-br from-indigo-600 to-emerald-600 opacity-0 group-hover:opacity-10 transition-opacity rounded-3xl">
                         </div>
-                        <i
-                            class="fas fa-brain text-5xl lg:text-7xl text-indigo-600 group-hover:scale-110 transition-transform duration-500"></i>
+                        <!-- Custom AI Hardware Vector (Animated) -->
+                        <svg class="w-40 h-40 lg:w-56 lg:h-56 group-hover:scale-105 transition-transform duration-700 drop-shadow-2xl"
+                            viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="ai-gradient" x1="0" y1="0" x2="200" y2="200"
+                                    gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#4F46E5" /> <!-- Indigo -->
+                                    <stop offset="1" stop-color="#10B981" /> <!-- Emerald -->
+                                </linearGradient>
+                            </defs>
+
+                            <!-- Processor Base -->
+                            <rect x="50" y="50" width="100" height="100" rx="20" stroke="url(#ai-gradient)"
+                                stroke-width="3" fill="white" class="group-hover:fill-slate-50 transition-colors" />
+
+                            <!-- Neural Nodes -->
+                            <circle cx="75" cy="75" r="6" fill="#4F46E5" class="animate-pulse"
+                                style="animation-duration: 2s;" />
+                            <circle cx="125" cy="75" r="6" fill="#10B981" class="animate-pulse"
+                                style="animation-duration: 3s;" />
+                            <circle cx="75" cy="125" r="6" fill="#10B981" class="animate-pulse"
+                                style="animation-duration: 2.5s;" />
+                            <circle cx="125" cy="125" r="6" fill="#4F46E5" class="animate-pulse"
+                                style="animation-duration: 3.5s;" />
+
+                            <!-- Synaptic Connections -->
+                            <path d="M75 75 L125 125" stroke="#CBD5E1" stroke-width="2"
+                                class="group-hover:stroke-indigo-300 transition-colors" />
+                            <path d="M125 75 L75 125" stroke="#CBD5E1" stroke-width="2"
+                                class="group-hover:stroke-emerald-300 transition-colors" />
+                            <path d="M75 75 L125 75" stroke="#CBD5E1" stroke-width="2" />
+                            <path d="M75 125 L125 125" stroke="#CBD5E1" stroke-width="2" />
+                            <path d="M75 75 L75 125" stroke="#CBD5E1" stroke-width="2" />
+                            <path d="M125 75 L125 125" stroke="#CBD5E1" stroke-width="2" />
+
+                            <!-- Circuit Traces (External) -->
+                            <path
+                                d="M50 80 H30 M50 120 H30 M150 80 H170 M150 120 H170 M80 50 V30 M120 50 V30 M80 150 V170 M120 150 V170"
+                                stroke="url(#ai-gradient)" stroke-width="3" stroke-linecap="round"
+                                stroke-opacity="0.6" />
+
+                            <!-- Central Core -->
+                            <rect x="90" y="90" width="20" height="20" rx="5" fill="url(#ai-gradient)" stroke="none"
+                                class="animate-spin-slow" style="transform-origin: center;" />
+                        </svg>
 
                         <!-- Floating Code Tags -->
                         <div class="absolute -top-10 -right-10 bg-white border border-slate-200 px-4 py-2 rounded-xl shadow-lg text-[10px] font-bold text-slate-700 animate-float"
@@ -130,7 +173,7 @@
                             class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center mb-6">
                             <i class="fas fa-robot text-xl"></i>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">La Solución AI</h3>
+                        <h3 class="text-xl font-bold mb-3">La Solución IA</h3>
                         <p class="text-slate-500 text-sm leading-relaxed">
                             Un asistente basado en <strong>Qwen3-Coder</strong> entrenado con el estilo del profesor.
                             Explica los errores de compilación en Java usandola terminología exacta del IES Simarro, sin
@@ -172,7 +215,7 @@
                             </div>
                             <h4 class="text-xl font-bold text-slate-900 mb-3">Soberanía del Dato</h4>
                             <p class="text-slate-600 text-sm leading-relaxed">
-                                A diferencia de usar ChatGPT o Copilot, <strong>JavaTutor AI</strong> se ejecuta 100%
+                                A diferencia de usar ChatGPT o Copilot, <strong>JavaTutor IA</strong> se ejecuta 100%
                                 on-premise. Ningún código de alumno ni material del centro sale de la infraestructura
                                 del IES Simarro, garantizando cumplimiento estricto del RGPD.
                             </p>
@@ -291,7 +334,113 @@
                     </div>
                 </div>
             </div>
-        </section>
+
+            <!-- Model Family Section -->
+            <div class="mt-20 pt-16 border-t border-slate-200">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span
+                        class="px-3 py-1 bg-indigo-50 border border-indigo-100 text-indigo-700 text-[10px] font-black tracking-[0.2em] uppercase rounded-full inline-block mb-4">
+                        Model Architecture
+                    </span>
+                    <h2 class="text-4xl font-black text-slate-900 mb-4">La Familia <span
+                            class="text-indigo-600">Simarro-JavaTutor</span></h2>
+                    <p class="text-slate-600 text-lg">
+                        Un ecosistema de modelos adaptativos diseñados para ejecutarse en cualquier lugar: desde los
+                        servidores del centro hasta el portátil más modesto del alumno.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- 30B Model -->
+                    <div
+                        class="group relative bg-slate-900 rounded-3xl p-8 overflow-hidden text-white hover:-translate-y-2 transition-transform duration-300">
+                        <div class="absolute top-0 right-0 p-8 opacity-10"><i class="fas fa-server text-8xl"></i></div>
+                        <div class="relative z-10">
+                            <div class="text-xs font-bold text-indigo-400 uppercase tracking-widest mb-2">Flagship Model
+                            </div>
+                            <h3 class="text-3xl font-black mb-1">JavaTutor-30B</h3>
+                            <p class="text-slate-400 text-xs mb-6 font-mono">Quantized 4-bit / 8-bit</p>
+
+                            <ul class="space-y-3 text-sm text-slate-300 mb-8">
+                                <li class="flex items-center gap-3"><i class="fas fa-microchip text-indigo-400"></i>
+                                    Servidor Central (Training)</li>
+                                <li class="flex items-center gap-3"><i class="fas fa-brain text-indigo-400"></i>
+                                    Razonamiento Complejo</li>
+                                <li class="flex items-center gap-3"><i class="fas fa-bolt text-indigo-400"></i> Alta
+                                    Precisión Pedagógica</li>
+                            </ul>
+
+                            <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                                <div class="bg-indigo-500 w-full h-full"></div>
+                            </div>
+                            <div class="flex justify-between text-[10px] text-slate-500 mt-2 font-mono uppercase">
+                                <span>Capability</span>
+                                <span>100%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 7B Model -->
+                    <div
+                        class="group relative bg-white border border-slate-200 rounded-3xl p-8 overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+                        <div class="absolute top-0 right-0 p-8 opacity-5"><i class="fas fa-laptop text-8xl"></i></div>
+                        <div class="relative z-10">
+                            <div class="text-xs font-bold text-emerald-600 uppercase tracking-widest mb-2">Standard
+                                Model</div>
+                            <h3 class="text-3xl font-black text-slate-900 mb-1">JavaTutor-7B</h3>
+                            <p class="text-slate-400 text-xs mb-6 font-mono">GGUF / Ollama Support</p>
+
+                            <ul class="space-y-3 text-sm text-slate-600 mb-8">
+                                <li class="flex items-center gap-3"><i class="fas fa-laptop text-emerald-500"></i> PC
+                                    Sobremesa / Portátil Gaming</li>
+                                <li class="flex items-center gap-3"><i
+                                        class="fas fa-tachometer-alt text-emerald-500"></i> Balance Velocidad/Calidad
+                                </li>
+                                <li class="flex items-center gap-3"><i class="fas fa-code text-emerald-500"></i>
+                                    Asistente IDE Local</li>
+                            </ul>
+
+                            <div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
+                                <div class="bg-emerald-500 w-[75%] h-full"></div>
+                            </div>
+                            <div class="flex justify-between text-[10px] text-slate-400 mt-2 font-mono uppercase">
+                                <span>Capability</span>
+                                <span>75%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 1B Nano Model -->
+                    <div
+                        class="group relative bg-white border border-slate-200 rounded-3xl p-8 overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+                        <div class="absolute top-0 right-0 p-8 opacity-5"><i class="fas fa-mobile-alt text-8xl"></i>
+                        </div>
+                        <div class="relative z-10">
+                            <div class="text-xs font-bold text-amber-600 uppercase tracking-widest mb-2">Edge Model
+                            </div>
+                            <h3 class="text-3xl font-black text-slate-900 mb-1">JavaTutor-Nano</h3>
+                            <p class="text-slate-400 text-xs mb-6 font-mono">1B - 0.5B Parameters</p>
+
+                            <ul class="space-y-3 text-sm text-slate-600 mb-8">
+                                <li class="flex items-center gap-3"><i class="fas fa-mobile-alt text-amber-500"></i>
+                                    Portátiles Básicos / Tablets</li>
+                                <li class="flex items-center gap-3"><i class="fas fa-bolt text-amber-500"></i>
+                                    Inferencia Instantánea</li>
+                                <li class="flex items-center gap-3"><i
+                                        class="fas fa-compress-arrows-alt text-amber-500"></i> Altamente Optimizado</li>
+                            </ul>
+
+                            <div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
+                                <div class="bg-amber-500 w-[40%] h-full"></div>
+                            </div>
+                            <div class="flex justify-between text-[10px] text-slate-400 mt-2 font-mono uppercase">
+                                <span>Capability</span>
+                                <span>Spec. Tasks</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
     </main>
 
     <div id="footer-placeholder"></div>

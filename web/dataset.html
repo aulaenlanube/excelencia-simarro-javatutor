@@ -136,98 +136,369 @@
                 </div>
             </div>
 
-            <!-- Static Documents Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- PDF Parsing -->
-                <div class="premium-card p-8 w-full">
-                    <div class="w-12 h-12 bg-rose-50 text-rose-600 rounded-xl flex items-center justify-center mb-6">
-                        <i class="fas fa-file-pdf text-xl"></i>
+            <!-- VIDEO BENEFITS SECTION -->
+            <div class="mt-8">
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="h-px flex-grow bg-gradient-to-r from-transparent via-slate-200 to-slate-200"></div>
+                    <div class="text-center">
+                        <span
+                            class="text-xs font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-600 uppercase tracking-widest">Why
+                            Video Matters?</span>
+                        <h3 class="text-2xl font-black text-slate-900 mt-1">La Ventaja Cognitiva</h3>
                     </div>
-                    <h3 class="text-xl font-bold mb-4">Ingesta de PDFs y Presentaciones</h3>
-                    <p class="text-slate-500 text-sm mb-6">
-                        Utilizamos <strong>Docling (IBM)</strong> para "entender" la estructura física de los
-                        documentos, no solo el texto plano.
-                    </p>
-                    <ul class="space-y-3">
-                        <li class="flex items-center text-sm text-slate-700 bg-slate-50 p-2 rounded-lg">
-                            <i class="fas fa-check-circle text-rose-500 mr-3"></i>
-                            Preservación de jerarquía H1-H6
-                        </li>
-                        <li class="flex items-center text-sm text-slate-700 bg-slate-50 p-2 rounded-lg">
-                            <i class="fas fa-check-circle text-rose-500 mr-3"></i>
-                            Reconstrucción de Tablas a Markdown
-                        </li>
-                        <li class="flex items-center text-sm text-slate-700 bg-slate-50 p-2 rounded-lg">
-                            <i class="fas fa-check-circle text-rose-500 mr-3"></i>
-                            OCR de diagramas UML en diapositivas
-                        </li>
-                    </ul>
+                    <div class="h-px flex-grow bg-gradient-to-l from-transparent via-slate-200 to-slate-200"></div>
                 </div>
 
-                <!-- Exam Processing -->
-                <div class="premium-card p-8 w-full">
-                    <div class="w-12 h-12 bg-amber-50 text-amber-600 rounded-xl flex items-center justify-center mb-6">
-                        <i class="fas fa-scroll text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">Banco de Exámenes (Q&A)</h3>
-                    <p class="text-slate-500 text-sm mb-6">
-                        Generación de pares sintéticos <span
-                            class="bg-amber-100 text-amber-800 px-1 py-0.5 rounded textxs font-bold">Pregunta <>
-                                Solución</span> a partir de exámenes de años anteriores.
-                    </p>
-                    <div class="relative pt-2">
-                        <div class="absolute left-4 top-0 bottom-0 w-0.5 bg-slate-200"></div>
-                        <div class="space-y-4 pl-8 relative">
-                            <div class="relative">
-                                <div
-                                    class="absolute -left-[2.35rem] top-1 w-3 h-3 bg-slate-400 rounded-full border-2 border-white">
-                                </div>
-                                <h4 class="text-xs font-bold text-slate-900 uppercase">Input</h4>
-                                <p class="text-xs text-slate-500 italic">"Examen Final Java 2023 - Ejercicio 3.pdf"</p>
-                            </div>
-                            <div class="relative">
-                                <div
-                                    class="absolute -left-[2.35rem] top-1 w-3 h-3 bg-amber-500 rounded-full border-2 border-white">
-                                </div>
-                                <h4 class="text-xs font-bold text-slate-900 uppercase">Output (SFT)</h4>
-                                <div
-                                    class="bg-slate-50 p-2 rounded text-[10px] font-mono text-slate-600 mt-1 border border-slate-200">
-                                    {"instruction": "Crea una clase Coche...", "response": "public class Coche { ... }"}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Privacy & Governance -->
-            <div class="bg-indigo-900 rounded-3xl p-10 text-center text-white relative overflow-hidden">
-                <div class="relative z-10 space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Benefit 1 -->
                     <div
-                        class="inline-flex items-center space-x-2 bg-indigo-800 px-4 py-1 rounded-full border border-indigo-700">
-                        <i class="fas fa-lock text-xs text-emerald-400"></i>
-                        <span class="text-xs font-bold tracking-widest uppercase">GDPR Compliance</span>
+                        class="bg-white rounded-3xl p-8 border border-slate-200 shadow-lg hover:-translate-y-1 transition-transform duration-300">
+                        <div
+                            class="w-14 h-14 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center mb-6 text-2xl">
+                            <i class="fas fa-users-cog"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-slate-900 mb-3">Modelado del "Proceso Mental"</h4>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            A diferencia de un libro, un vídeo captura el <strong>proceso de razonamiento</strong>. La
+                            IA
+                            aprende no solo la solución, sino cómo el profesor aborda el error, prueba hipótesis y
+                            refina el
+                            código en tiempo real.
+                        </p>
                     </div>
-                    <h3 class="text-3xl font-bold">Privacidad y Limpieza del Dato</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left max-w-4xl mx-auto pt-6">
-                        <div class="space-y-2">
-                            <h4 class="font-bold text-indigo-300">Sanitización PII</h4>
-                            <p class="text-sm text-indigo-100">Algoritmos de NLP (NER) para detectar y ofuscar nombres
-                                reales de alumnos en repositorios de entregas antiguas.</p>
+
+                    <!-- Benefit 2 -->
+                    <div
+                        class="bg-white rounded-3xl p-8 border border-slate-200 shadow-lg hover:-translate-y-1 transition-transform duration-300">
+                        <div
+                            class="w-14 h-14 bg-purple-50 text-purple-600 rounded-2xl flex items-center justify-center mb-6 text-2xl">
+                            <i class="fas fa-microphone-alt"></i>
                         </div>
-                        <div class="space-y-2">
-                            <h4 class="font-bold text-indigo-300">Deduplicación Semántica</h4>
-                            <p class="text-sm text-indigo-100">Eliminación de redundancia. Si 50 alumnos resolvieron el
-                                "Hola Mundo" igual, solo guardamos una instancia canónica.</p>
+                        <h4 class="text-xl font-bold text-slate-900 mb-3">Tono y Pedagogía</h4>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            El audio contiene matices críticos: énfasis en conceptos difíciles, pausas para reflexión y
+                            un
+                            tono alentador. Entrenamos al modelo para replicar esa <strong>empatía docente</strong> ante
+                            la
+                            frustración del alumno.
+                        </p>
+                    </div>
+
+                    <!-- Benefit 3 -->
+                    <div
+                        class="bg-white rounded-3xl p-8 border border-slate-200 shadow-lg hover:-translate-y-1 transition-transform duration-300">
+                        <div
+                            class="w-14 h-14 bg-pink-50 text-pink-600 rounded-2xl flex items-center justify-center mb-6 text-2xl">
+                            <i class="fas fa-layer-group"></i>
                         </div>
-                        <div class="space-y-2">
-                            <h4 class="font-bold text-indigo-300">Quality Filtering</h4>
-                            <p class="text-sm text-indigo-100">Descarte automático de código que no compila o carece de
-                                comentarios javadoc mínimos.</p>
-                        </div>
+                        <h4 class="text-xl font-bold text-slate-900 mb-3">Contexto Rico</h4>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Cruzamos lo que se <em>dice</em> con lo que se <em>escribe</em>. Esta <strong>alineación
+                                multimodal</strong> permite a la IA entender referencias vagas como "fíjate en esta
+                            línea de
+                            aquí" basándose en el contexto visual del IDE.
+                        </p>
                     </div>
                 </div>
-            </div>
+
+                <!-- STATIC DOCUMENTS SECTION -->
+                <div class="mt-12">
+                    <div class="flex items-center gap-4 mb-10">
+                        <div class="h-px flex-grow bg-gradient-to-r from-transparent via-slate-200 to-slate-200"></div>
+                        <div class="text-center">
+                            <span
+                                class="text-xs font-bold text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-amber-600 uppercase tracking-widest">Static
+                                Knowledge Base</span>
+                            <h3 class="text-2xl font-black text-slate-900 mt-1">Digitalización del Legado</h3>
+                        </div>
+                        <div class="h-px flex-grow bg-gradient-to-l from-transparent via-slate-200 to-slate-200"></div>
+                    </div>
+
+                    <div class="flex flex-col gap-8">
+                        <!-- Row 1: PDF & Docs (Expanded) -->
+                        <div
+                            class="group relative bg-white rounded-[2.5rem] p-8 md:p-10 border border-slate-200 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 overflow-hidden">
+                            <div
+                                class="absolute top-0 right-0 p-10 opacity-5 transition-opacity group-hover:opacity-10 transform translate-x-10 -translate-y-10 effect-float">
+                                <i class="fas fa-file-contract text-9xl text-rose-500"></i>
+                            </div>
+                            <div class="relative z-10 flex flex-col md:flex-row gap-10 items-start">
+                                <!-- Icon & Title -->
+                                <div class="md:w-1/3 space-y-6">
+                                    <div
+                                        class="w-16 h-16 bg-rose-50 text-rose-600 rounded-2xl flex items-center justify-center text-3xl shadow-sm group-hover:scale-110 transition-transform duration-500">
+                                        <i class="fas fa-file-pdf"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-2xl font-black text-slate-900 mb-2">Ingesta Documental</h3>
+                                        <p class="text-sm text-slate-500 leading-relaxed">
+                                            Transformamos apuntes estáticos (PDF/PPTX) en conocimiento estructurado. No
+                                            es solo OCR; es <strong>comprensión semántica del layout</strong>.
+                                        </p>
+                                    </div>
+                                    <div
+                                        class="inline-flex items-center gap-2 px-3 py-1.5 bg-slate-100 rounded-lg text-xs font-mono text-slate-500 hover:bg-rose-50 hover:text-rose-600 transition-colors cursor-help">
+                                        <i class="fas fa-robot text-rose-500"></i>
+                                        <span>Powered by IBM Docling</span>
+                                    </div>
+                                </div>
+
+                                <!-- Visual/Tech Spec -->
+                                <div
+                                    class="flex-grow w-full bg-slate-50 rounded-2xl p-6 border border-slate-100 group-hover:border-rose-100 transition-colors">
+                                    <div class="flex justify-between items-center mb-6">
+                                        <span
+                                            class="text-xs font-bold text-rose-500 uppercase tracking-widest">Extraction
+                                            Pipeline</span>
+                                        <i class="fas fa-arrow-right-long text-slate-300 animate-pulse"></i>
+                                    </div>
+                                    <div class="space-y-4">
+                                        <!-- Feature 1 -->
+                                        <div
+                                            class="flex items-start gap-4 p-3 bg-white rounded-xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                                            <div
+                                                class="w-8 h-8 rounded-full bg-rose-50 flex items-center justify-center text-rose-500 shrink-0">
+                                                <i class="fas fa-heading text-xs"></i>
+                                            </div>
+                                            <div>
+                                                <h4 class="text-xs font-bold text-slate-900 uppercase">Jerarquía
+                                                    Semántica</h4>
+                                                <p class="text-xs text-slate-500 mt-0.5">Preservación estricta de H1-H6
+                                                    y listas anidadas para mantener el contexto.</p>
+                                            </div>
+                                        </div>
+                                        <!-- Feature 2 -->
+                                        <div
+                                            class="flex items-start gap-4 p-3 bg-white rounded-xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                                            <div
+                                                class="w-8 h-8 rounded-full bg-rose-50 flex items-center justify-center text-rose-500 shrink-0">
+                                                <i class="fas fa-table text-xs"></i>
+                                            </div>
+                                            <div>
+                                                <h4 class="text-xs font-bold text-slate-900 uppercase">Reconstrucción
+                                                    Tabular</h4>
+                                                <p class="text-xs text-slate-500 mt-0.5">Conversión inteligente de
+                                                    tablas complejas a Markdown procesable por LLMs.</p>
+                                            </div>
+                                        </div>
+                                        <!-- Feature 3 -->
+                                        <div
+                                            class="flex items-start gap-4 p-3 bg-white rounded-xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                                            <div
+                                                class="w-8 h-8 rounded-full bg-rose-50 flex items-center justify-center text-rose-500 shrink-0">
+                                                <i class="fas fa-project-diagram text-xs"></i>
+                                            </div>
+                                            <div>
+                                                <h4 class="text-xs font-bold text-slate-900 uppercase">Visión de
+                                                    Diagramas</h4>
+                                                <p class="text-xs text-slate-500 mt-0.5">Descripción textual generativa
+                                                    de diagramas UML y esquemas E/R.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Row 2: Exams & Code Mining (Grid) -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <!-- Exam Processing -->
+                            <div
+                                class="group bg-white rounded-[2.5rem] p-8 border border-slate-200 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 flex flex-col relative overflow-hidden">
+                                <!-- Back glow -->
+                                <div
+                                    class="absolute -right-10 -bottom-10 w-64 h-64 bg-amber-500/5 rounded-full blur-3xl group-hover:bg-amber-500/10 transition-colors">
+                                </div>
+
+                                <div class="flex items-center justify-between mb-8 relative z-10">
+                                    <div
+                                        class="w-14 h-14 bg-amber-50 text-amber-600 rounded-2xl flex items-center justify-center text-2xl shadow-sm group-hover:rotate-12 transition-transform duration-500">
+                                        <i class="fas fa-scroll"></i>
+                                    </div>
+                                    <span
+                                        class="px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-[10px] font-black uppercase tracking-widest shadow-sm">Q&A
+                                        Synth</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-slate-900 mb-4 relative z-10">Banco de Exámenes
+                                    Histórico</h3>
+                                <p class="text-sm text-slate-500 mb-8 leading-relaxed flex-grow relative z-10">
+                                    Convertimos 5 años de exámenes PDF en pares de entrenamiento sintético. No solo
+                                    extraemos preguntas, sino que <strong>generamos el razonamiento lógico</strong>
+                                    necesario para resolverlas.
+                                </p>
+
+                                <!-- Animated Flow -->
+                                <div
+                                    class="relative h-28 bg-slate-50 rounded-2xl border border-dashed border-amber-200 flex items-center justify-center overflow-hidden group-hover:bg-amber-50/30 transition-colors z-10">
+                                    <div class="absolute inset-x-8 h-0.5 bg-slate-200 top-1/2 -translate-y-1/2"></div>
+                                    <!-- Nodes -->
+                                    <div class="relative z-10 flex gap-8 w-full justify-center px-4">
+                                        <div class="flex flex-col items-center gap-2 group/node">
+                                            <div
+                                                class="w-10 h-10 bg-white border-2 border-slate-300 rounded-xl flex items-center justify-center text-slate-400 shadow-sm group-hover/node:border-amber-400 group-hover/node:text-amber-500 transition-colors">
+                                                <i class="fas fa-file-pdf"></i>
+                                            </div>
+                                            <span class="text-[9px] font-bold text-slate-400 uppercase">Exam</span>
+                                        </div>
+
+                                        <div
+                                            class="w-8 h-8 bg-amber-500 rounded-full flex items-center justify-center text-white shadow-lg animate-pulse self-center z-20 ring-4 ring-white">
+                                            <i class="fas fa-cog fa-spin text-xs"></i>
+                                        </div>
+
+                                        <div class="flex flex-col items-center gap-2 group/node">
+                                            <div
+                                                class="w-10 h-10 bg-white border-2 border-emerald-400 rounded-xl flex items-center justify-center text-emerald-500 shadow-sm group-hover/node:scale-110 transition-transform">
+                                                <i class="fas fa-check"></i>
+                                            </div>
+                                            <span
+                                                class="text-[9px] font-bold text-emerald-600 uppercase">Reasoning</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Code Mining (New) -->
+                            <div
+                                class="group bg-white rounded-[2.5rem] p-8 border border-slate-200 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 flex flex-col relative overflow-hidden">
+                                <!-- Back glow -->
+                                <div
+                                    class="absolute -left-10 -bottom-10 w-64 h-64 bg-sky-500/5 rounded-full blur-3xl group-hover:bg-sky-500/10 transition-colors">
+                                </div>
+
+                                <div class="flex items-center justify-between mb-8 relative z-10">
+                                    <div
+                                        class="w-14 h-14 bg-sky-50 text-sky-600 rounded-2xl flex items-center justify-center text-2xl shadow-sm group-hover:rotate-12 transition-transform duration-500">
+                                        <i class="fas fa-laptop-code"></i>
+                                    </div>
+                                    <span
+                                        class="px-3 py-1 bg-sky-100 text-sky-700 rounded-full text-[10px] font-black uppercase tracking-widest shadow-sm">Code
+                                        Mining</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-slate-900 mb-4 relative z-10">Repositorios de Alumnos
+                                </h3>
+                                <p class="text-sm text-slate-500 mb-6 leading-relaxed flex-grow relative z-10">
+                                    Análisis estático de miles de proyectos para identificar los
+                                    errores más comunes y los <strong>"training gaps"</strong> (conceptos mal
+                                    entendidos) del alumnado.
+                                </p>
+
+                                <div class="space-y-3 mt-auto relative z-10">
+                                    <div
+                                        class="flex items-center justify-between text-xs p-3 bg-slate-50 rounded-xl border border-slate-100 group-hover:border-red-100 transition-colors">
+                                        <span class="text-slate-600 flex items-center font-semibold"><i
+                                                class="fas fa-bug text-red-500 mr-2.5"></i>NullPointerExceptions</span>
+                                        <span
+                                            class="font-mono font-bold text-slate-400 bg-white px-2 py-0.5 rounded shadow-sm border border-slate-100">34%
+                                            Freq</span>
+                                    </div>
+                                    <div
+                                        class="flex items-center justify-between text-xs p-3 bg-slate-50 rounded-xl border border-slate-100 group-hover:border-red-100 transition-colors">
+                                        <span class="text-slate-600 flex items-center font-semibold"><i
+                                                class="fas fa-bug text-red-500 mr-2.5"></i>Infinite Loops</span>
+                                        <span
+                                            class="font-mono font-bold text-slate-400 bg-white px-2 py-0.5 rounded shadow-sm border border-slate-100">12%
+                                            Freq</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Privacy & Governance -->
+                    <!-- Privacy & Governance Section -->
+                    <div
+                        class="mt-24 bg-indigo-900 rounded-[2.5rem] p-12 text-center text-white relative overflow-hidden shadow-2xl">
+                        <!-- Background Effects -->
+                        <div
+                            class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDQwIDQwIj48ZyBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0wIDQwaDQwVjBIOHYyMGgyMFYwSDQwdiA0MEgwIiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDUiLz48L2c+PC9zdmc+')] opacity-20">
+                        </div>
+                        <div
+                            class="absolute -top-24 -left-24 w-64 h-64 bg-indigo-500 rounded-full blur-[100px] opacity-40 animate-pulse-slow">
+                        </div>
+                        <div
+                            class="absolute -bottom-24 -right-24 w-64 h-64 bg-purple-500 rounded-full blur-[100px] opacity-40 animate-pulse-slow">
+                        </div>
+
+                        <div class="relative z-10 space-y-10">
+                            <div
+                                class="inline-flex items-center space-x-2 bg-indigo-800/80 backdrop-blur-sm px-4 py-1.5 rounded-full border border-indigo-700/50 shadow-inner">
+                                <i class="fas fa-shield-alt text-xs text-emerald-400"></i>
+                                <span class="text-xs font-bold tracking-[0.2em] uppercase text-indigo-100">Zero-Trust
+                                    Data Governance</span>
+                            </div>
+
+                            <div class="max-w-3xl mx-auto">
+                                <h3 class="text-4xl font-black mb-4 tracking-tight">Privacidad y Sanitización del Dato
+                                </h3>
+                                <p class="text-indigo-200 text-lg leading-relaxed">
+                                    Aplicamos un pipeline de limpieza estricto para garantizar que el dataset final sea
+                                    <span class="text-white font-bold">100% anónimo</span> y de <span
+                                        class="text-white font-bold">máxima calidad pedagógica</span>, eliminando ruido
+                                    y redundancia antes del entrenamiento.
+                                </p>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left max-w-5xl mx-auto pt-8">
+                                <!-- Col 1: Sanitization -->
+                                <div
+                                    class="bg-indigo-950/50 p-6 rounded-2xl border border-indigo-500/20 hover:bg-indigo-900/50 transition-colors">
+                                    <div
+                                        class="w-10 h-10 bg-indigo-500/20 rounded-lg flex items-center justify-center mb-4 text-indigo-300">
+                                        <i class="fas fa-user-secret"></i>
+                                    </div>
+                                    <h4 class="font-bold text-white text-lg mb-2">Sanitización PII (NER)</h4>
+                                    <p class="text-sm text-indigo-300 leading-relaxed mb-3">
+                                        Uso de modelos <strong>BERT-Large-NER</strong> para detectar y reemplazar
+                                        entidades sensibles (Nombres, DNI, Emails).
+                                    </p>
+                                    <div
+                                        class="text-[10px] font-mono bg-black/30 p-2 rounded text-emerald-400 border border-white/5">
+                                        Author: <span class="text-indigo-400">[ANONYMIZED_ID_84]</span>
+                                    </div>
+                                </div>
+
+                                <!-- Col 2: Deduplication -->
+                                <div
+                                    class="bg-indigo-950/50 p-6 rounded-2xl border border-indigo-500/20 hover:bg-indigo-900/50 transition-colors">
+                                    <div
+                                        class="w-10 h-10 bg-indigo-500/20 rounded-lg flex items-center justify-center mb-4 text-indigo-300">
+                                        <i class="fas fa-clone"></i>
+                                    </div>
+                                    <h4 class="font-bold text-white text-lg mb-2">Dedup Semántica (MinHash)</h4>
+                                    <p class="text-sm text-indigo-300 leading-relaxed mb-3">
+                                        Eliminación de redundancia agresiva. Si 50 entregas de "Hola Mundo" son
+                                        idénticas, conservamos solo una <strong>instancia canónica</strong>.
+                                    </p>
+                                    <div class="flex items-center gap-2 text-[10px] text-indigo-400">
+                                        <span class="w-full bg-indigo-500/30 h-1 rounded overflow-hidden">
+                                            <div class="bg-emerald-400 w-[85%] h-full"></div>
+                                        </span>
+                                        <span>85% Reducción</span>
+                                    </div>
+                                </div>
+
+                                <!-- Col 3: Quality Filter -->
+                                <div
+                                    class="bg-indigo-950/50 p-6 rounded-2xl border border-indigo-500/20 hover:bg-indigo-900/50 transition-colors">
+                                    <div
+                                        class="w-10 h-10 bg-indigo-500/20 rounded-lg flex items-center justify-center mb-4 text-indigo-300">
+                                        <i class="fas fa-filter"></i>
+                                    </div>
+                                    <h4 class="font-bold text-white text-lg mb-2">Quality Gate (Linter)</h4>
+                                    <p class="text-sm text-indigo-300 leading-relaxed mb-3">
+                                        Pipeline de CI/CD que rechaza código que no compila (Maven Build) o carece de
+                                        Javadoc.
+                                    </p>
+                                    <ul class="text-[10px] text-indigo-300 space-y-1">
+                                        <li><i class="fas fa-check text-emerald-400 mr-1"></i> Syntax Validated</li>
+                                        <li><i class="fas fa-check text-emerald-400 mr-1"></i> Cyclomatic Complexity <
+                                                15</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
         </section>
     </main>
 
